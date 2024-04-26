@@ -156,9 +156,9 @@ namespace MathClasses
 
         Vector3 operator / (const float rhs) const
         {
-            Vector3 divide(x / rhs, y / rhs, z / rhs);
+            Vector3 product(x / rhs, y / rhs, z / rhs);
 
-            return divide;
+            return product;
         }
 
         void operator += (const Vector3& rhs) const

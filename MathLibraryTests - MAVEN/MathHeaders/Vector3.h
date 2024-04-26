@@ -11,7 +11,13 @@ namespace MathClasses
 
     public: //  VARIABLES
 
-        float x, y, z;
+        union
+        {
+            struct { float x, y, z; };  //  12-bytes
+            float data[3];              //  12-bytes
+                //  the array data[3] shares memory with the anonymous struct
+                //  data[0] uses the same memory as x, and so on for [1] and [2]
+        };
 
     public: //  CONSTRUCTORS
 
@@ -26,14 +32,6 @@ namespace MathClasses
         {
             x = xInput, y = yInput, z = zInput;
         }
-
-        union
-        {
-            struct { float x, y, z; };  //  12-bytes
-            float data[3];              //  12-bytes
-                //  the array data[3] shares memory with the anonymous struct
-                //  data[0] uses the same memory as x, and so on for [1] and [2]
-        };
 
     public: //  METHODS
 
@@ -120,7 +118,10 @@ namespace MathClasses
             return data[dim];
         }
 
-        operator float* () { return data; } //  cast to float array
+        operator float* () { return data; } //  the Vector3 struct already acts like a float array
+                                            //  this allows you to implicitly cast a Vector3 into a float array
+                                            //  this may come up if a function needs a float array, not a Vector3
+                                            //  you will be able to use a Vector3 in such a case, because this operator deals with it
 
         operator const float* () const { return data; } //  cast to float array - const-qualified
 

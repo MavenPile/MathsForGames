@@ -161,15 +161,15 @@ namespace MathClasses
             return product;
         }
 
-        void operator += (const Vector3& rhs) const
-        {
-            x + rhs.x, y + rhs.y, z + rhs.z;
-        }
+        //void operator += (const Vector3& rhs) const
+        //{
+        //    x + rhs.x, y + rhs.y, z + rhs.z;
+        //}
 
-        void operator -= (const Vector3& rhs) const
-        {
-            x - rhs.x, y - rhs.y, z - rhs.z;
-        }
+        //void operator -= (const Vector3& rhs) const
+        //{
+        //    x - rhs.x, y - rhs.y, z - rhs.z;
+        //}
 
         bool operator == (const Vector3& rhs) const
         {

@@ -13,7 +13,7 @@ namespace MathClasses
 
         union
         {
-            struct { x, y, z, w };
+            struct { float x, y, z, w; };
             float data[4];
         };
 
@@ -41,12 +41,7 @@ namespace MathClasses
 
         float Magnitude() const
         {
-            float temp = (x * x) + (y * y) + (z * z) + (w + w);
-
-            if (0 >= temp)
-            {
-                return 0.f;
-            }
+            float temp = (x * x) + (y * y) + (z * z) + (w * w);
 
             return sqrt(temp);
         }
@@ -55,7 +50,7 @@ namespace MathClasses
         {
             float mag = Magnitude();
 
-            Vector4 temp;
+            Vector4 temp(0, 0, 0, 0);
 
             if (0 >= mag)
             {
@@ -92,10 +87,10 @@ namespace MathClasses
 
         Vector4 Cross(const Vector4 rhs) const
         {
-            float crossX;
-            float crossY;
-            float crossZ;
-            float crossW;
+            float crossX = (y * rhs.z) - (z * rhs.y);
+            float crossY = (z * rhs.x) - (x * rhs.z);
+            float crossZ = (x * rhs.y) - (y * rhs.x);
+            float crossW = 0;
 
             Vector4 temp(crossX, crossY, crossZ, crossW);
 
@@ -159,21 +154,21 @@ namespace MathClasses
             return product;
         }
 
-        void operator += (const Vector4& rhs) const
-        {
-            x = x + rhs.x;
-            y = y + rhs.y;
-            z = z + rhs.z;
-            w = w + rhs.w;
-        }
+        //void operator += (const Vector4& rhs) const
+        //{
+        //    x = x + rhs.x;
+        //    y = y + rhs.y;
+        //    z = z + rhs.z;
+        //    w = w + rhs.w;
+        //}
 
-        void operator -= (const Vector4& rhs) const
-        {
-            x = x - rhs.x;
-            y = y - rhs.y;
-            z = z - rhs.z;
-            w = w - rhs.w;
-        }
+        //void operator -= (const Vector4& rhs) const
+        //{
+        //    x = x - rhs.x;
+        //    y = y - rhs.y;
+        //    z = z - rhs.z;
+        //    w = w - rhs.w;
+        //}
 
         bool operator == (const Vector4& rhs) const
         {

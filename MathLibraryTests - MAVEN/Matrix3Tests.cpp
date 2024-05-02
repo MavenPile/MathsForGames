@@ -74,17 +74,17 @@ namespace MathLibraryTests
 			Assert::AreEqual(9.f, mat.m9);
 		}
 		// mat3 * vec
-		//TEST_METHOD(OperatorMultiplyMat3Vec3)
-		//{
-		//	Matrix3 m3b(-0.188076824f, 0.f, 0.982154310f,
-		//		0.f, 1.f, 0.f,
-		//		-0.982154310f, 0.f, -0.188076824f);
+		TEST_METHOD(OperatorMultiplyMat3Vec3)
+		{
+			Matrix3 m3b(-0.188076824f, 0.f, 0.982154310f,
+				0.f, 1.f, 0.f,
+				-0.982154310f, 0.f, -0.188076824f);
 
-		//	Vector3 v3a(13.5f, -48.23f, 862);
-		//	Vector3 v3b = m3b * v3a;
+			Vector3 v3a(13.5f, -48.23f, 862);
+			Vector3 v3b = m3b * v3a;
 
-		//	Assert::AreEqual(Vector3(-849.156067f, -48.23f, -148.863144f), v3b);
-		//}
+			Assert::AreEqual(Vector3(-849.156067f, -48.23f, -148.863144f), v3b);
+		}
 		// mat3 * mat3
 		TEST_METHOD(OperatorMultiplyMat3Mat3)
 		{

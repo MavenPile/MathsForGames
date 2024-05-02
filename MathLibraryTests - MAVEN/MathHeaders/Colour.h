@@ -42,11 +42,6 @@ namespace MathClasses
 			colour = colour | temp;
 		}
 
-		~Colour()
-		{
-
-		}
-
 	public:	//	METHODS
 
 		unsigned char GetRed() const	//	unsigned char holds only one byte, cutting off all but the right-most eight bits
@@ -103,6 +98,24 @@ namespace MathClasses
 			unsigned int v = alpha << 0;
 
 			colour = colour & 0xffffff00;
+
+			colour = colour | v;
+		}
+
+		void PushRight(int value)
+		{
+			unsigned int v = colour >> value;
+
+			colour = 0x00000000;
+
+			colour = colour | v;
+		}
+
+		void PushLeft(int value)
+		{
+			unsigned int v = colour << value;
+
+			colour = 0x00000000;
 
 			colour = colour | v;
 		}

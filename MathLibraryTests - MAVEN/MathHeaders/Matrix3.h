@@ -163,53 +163,6 @@ namespace MathClasses
 
         Matrix3 operator * (const Matrix3 rhs) const
         {
-            //Matrix3 result;
-            
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Vector3 col(mm[i][0], mm[i][1], mm[i][2]);
-
-            //    for (int j = 0; j < 3; j++)
-            //    {
-            //        result.mm[i][j] = col.Dot(rhs.axis[j]);
-            //    }
-            //}
-
-            //for (int i = 0; i < 3; ++i)
-            //{
-            //    Vector3 row(mm[0][i], mm[1][i], mm[2][i]);
-
-            //    for (int j = 0; j < 3; ++i)
-            //    {
-            //        result.mm[j][i] = row.Dot(rhs.axis[j]);
-            //    }
-            //}
-
-
-            //result.m1 = m1 * rhs.m1 + m4 * rhs.m2 + m7 * rhs.m3;
-            //result.m4 = m1 * rhs.m4 + m4 * rhs.m5 + m7 * rhs.m6;
-            //result.m7 = m1 * rhs.m7 + m4 * rhs.m8 + m7 * rhs.m9;
-
-            //result.m1 = Vector3(m1, m4, m7).Dot(rhs.axis[0]);
-            //result.m2 = Vector3(m1, m4, m7).Dot(rhs.axis[1]);
-            //result.m3 = Vector3(m1, m4, m7).Dot(rhs.axis[2]);
-
-            //result.m2 = m2 * rhs.m1 + m5 * rhs.m2 + m8 * rhs.m3;
-            //result.m5 = m2 * rhs.m4 + m5 * rhs.m5 + m8 * rhs.m6;
-            //result.m8 = m2 * rhs.m7 + m5 * rhs.m8 + m8 * rhs.m9;
-
-            //result.m2 = Vector3(m2, m5, m8).Dot(rhs.axis[0]);
-            //result.m5 = Vector3(m2, m5, m8).Dot(rhs.axis[1]);
-            //result.m8 = Vector3(m2, m5, m8).Dot(rhs.axis[2]);
-
-            //result.m3 = m3 * rhs.m1 + m6 * rhs.m2 + m9 * rhs.m3;
-            //result.m6 = m3 * rhs.m4 + m6 * rhs.m5 + m9 * rhs.m6;
-            //result.m9 = m3 * rhs.m7 + m6 * rhs.m8 + m9 * rhs.m9;
-
-            //result.m3 = Vector3(m3, m6, m9).Dot(rhs.axis[0]);
-            //result.m6 = Vector3(m3, m6, m9).Dot(rhs.axis[1]);
-            //result.m9 = Vector3(m3, m6, m9).Dot(rhs.axis[2]);
-
             Matrix3 result;
 
             for (int i = 0; i < 3; i++)

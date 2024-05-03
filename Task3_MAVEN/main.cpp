@@ -1,4 +1,9 @@
 #include "raylib-cpp.hpp"
+#include "Colour.h"
+#include "Matrix3.h"
+#include "Matrix4.h"
+#include "Vector3.h"
+#include "Vector4.h"
 
 int main()
 {

@@ -75,6 +75,16 @@ public:
 
 	Math::Matrix3 GetLocalMatrix() const;
 
+	void Translate(float x, float y);
+
+	void Translate(Math::Vector3 translation);
+
+	void Rotate(float radians);
+
+	void Scale(float x, float y);
+
+	void Scale(Math::Vector3 scalar);
+
 	//	WORLD TRANSFORM METHODS
 
 	Math::Vector3 GetWorldPosition() const;

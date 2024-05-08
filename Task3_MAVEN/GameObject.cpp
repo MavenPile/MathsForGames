@@ -143,6 +143,31 @@ Math::Matrix3 GameObject::GetLocalMatrix() const
 			Math::Matrix3::MakeScale(m_localScale.x, m_localScale.y);
 }
 
+void GameObject::Translate(float x, float y)
+{
+	m_localPos += Math::Vector3(x, y, 0);
+}
+
+void GameObject::Translate(Math::Vector3 translation)
+{
+	m_localPos += translation;
+}
+
+void GameObject::Rotate(float radians)
+{
+	m_localRot += radians;
+}
+
+void GameObject::Scale(float x, float y)
+{
+	m_localScale *= Math::Vector3(x, y, 1);
+}
+
+void GameObject::Scale(Math::Vector3 scalar)
+{
+	m_localScale *= scalar;
+}
+
 //	WORLD POS/ROT/SCALE METHODS
 
 Math::Vector3 GameObject::GetWorldPosition() const

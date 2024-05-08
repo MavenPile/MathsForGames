@@ -171,15 +171,20 @@ namespace Math
             return product;
         }
 
-        //void operator += (const Vector3& rhs) const
-        //{
-        //    x + rhs.x, y + rhs.y, z + rhs.z;
-        //}
+        void operator += (const Vector3& rhs)
+        {
+            x = x + rhs.x, y = y + rhs.y, z = z + rhs.z;
+        }
 
-        //void operator -= (const Vector3& rhs) const
-        //{
-        //    x - rhs.x, y - rhs.y, z - rhs.z;
-        //}
+        void operator -= (const Vector3& rhs)
+        {
+            x = x - rhs.x, y = y - rhs.y, z = z - rhs.z;
+        }
+
+        void operator *= (const Vector3& rhs)
+        {
+            x = x * rhs.x, y = y * rhs.y, z = z * rhs.z;
+        }
 
         bool operator == (const Vector3& rhs) const
         {

@@ -1,5 +1,6 @@
 #pragma once
-namespace MathClasses
+
+namespace Math
 {
     struct Matrix3
     {

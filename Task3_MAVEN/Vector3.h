@@ -2,7 +2,7 @@
 #include <string>
 #include <cmath>
 
-namespace MathClasses
+namespace Math
 {
     struct Vector3
     {

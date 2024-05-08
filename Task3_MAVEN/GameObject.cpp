@@ -87,6 +87,16 @@ const float GameObject::AngleFrom2D(float x, float y) const
 	return atan2(y, x);
 }
 
+float GameObject::Rad2Deg(float radians)
+{
+	return radians * (180 / pi);
+}
+
+const float GameObject::Rad2Deg(float radians) const
+{
+	return radians * (180 / pi);
+}
+
 //	LOCAL POS/ROT/SCALE METHODS
 
 Math::Vector3 GameObject::GetLocalPosition() const

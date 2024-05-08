@@ -7,6 +7,10 @@
 
 class GameObject
 {
+private:
+
+	const float pi = 3.14159265359;
+
 protected:
 	
 	//	MEMBER VARIABLES
@@ -52,6 +56,10 @@ public:
 	float AngleFrom2D(float x, float y);
 
 	const float AngleFrom2D(float x, float y) const;
+
+	float Rad2Deg(float radians);
+
+	const float Rad2Deg(float radians) const;
 
 	//	LOCAL TRANSFORM METHODS
 

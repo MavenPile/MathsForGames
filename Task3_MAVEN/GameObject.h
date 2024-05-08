@@ -15,9 +15,9 @@ protected:
 
 	std::vector<GameObject*> m_children;
 
-	Math::Vector3 m_localPosition;
+	Math::Vector3 m_localPos;
 
-	float m_localRotation;
+	float m_localRot;
 
 	Math::Vector3 m_localScale;
 
@@ -49,21 +49,21 @@ public:
 
 	void Draw();
 
-	//	TRANSFORM METHODS
+	float AngleFrom2D(float x, float y);
+
+	const float AngleFrom2D(float x, float y) const;
+
+	//	LOCAL TRANSFORM METHODS
 
 	Math::Vector3 GetLocalPosition() const;
 
-	void SetLocalPosition(Math::Vector3 newPosition);
+	void SetLocalPosition(Math::Vector3 newPos);
 
 	void SetLocalPosition(float newX, float newY);
 
-	Math::Vector3 GetWorldPosition() const;
-
 	float GetLocalRotation() const;
 
-	void SetLocalRotation(float newRotation);
-
-	float GetWorldRotation() const;
+	void SetLocalRotation(float newRot);
 
 	Math::Vector3 GetLocalScale() const;
 
@@ -71,11 +71,17 @@ public:
 
 	void SetLocalScale(float newX, float newY);
 
-	Math::Vector3 GetWorldScale() const;
-
 	Math::Vector3 GetForward() const;
 
 	Math::Matrix3 GetLocalMatrix() const;
+
+	//	WORLD TRANSFORM METHODS
+
+	Math::Vector3 GetWorldPosition() const;
+
+	float GetWorldRotation() const;
+
+	Math::Vector3 GetWorldScale() const;
 
 	Math::Matrix3 GetWorldMatrix() const;
 };

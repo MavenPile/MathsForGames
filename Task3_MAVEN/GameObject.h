@@ -37,6 +37,8 @@ public:
 
 	GameObject();
 
+	//GameObject(GameObject* parent);
+
 	//	METHODS
 
 	void SetParent(GameObject* newParent);

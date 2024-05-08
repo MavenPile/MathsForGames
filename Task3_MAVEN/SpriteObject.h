@@ -4,7 +4,7 @@
 #include "Colour.h"
 #include "GameObject.h"
 
-class SpriteObject : GameObject
+class SpriteObject : public GameObject
 {
 public:
 

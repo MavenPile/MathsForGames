@@ -1,15 +1,6 @@
 #include "raylib-cpp.hpp"
-#include "Colour.h"
-#include "Matrix3.h"
-#include "Matrix4.h"
-#include "Vector3.h"
-#include "Vector4.h"
 #include "SpriteObject.h"
-#include "GameObject.h"
-
-#include <chrono>
-
-//using namespace raylib::
+#include "TankPlayer.h"
 
 int main()
 {
@@ -17,18 +8,28 @@ int main()
 
 	int screenWidth = 800;
 	int screenHeight = 600;
-	Color textColour = raylib::Color::LightGray();
-	raylib::Window window(screenWidth, screenHeight, "This is the window title!");
+	raylib::Color textColour = raylib::Color::LightGray();
+	raylib::Window window(screenWidth, screenHeight, "Tank Game!");
 
 	SetTargetFPS(60);
 
-	raylib::Texture2D tankSprite("res/tankBody_blue_outline.png");
+	SpriteObject turret;
+	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	turret.m_sprite = &turretSprite;
+	turret.SetLocalPosition(25, 0);
 
-	SpriteObject Player;
+	GameObject turretBase;
 
-	Player.m_sprite = &tankSprite;
+	TankPlayer player(&turretBase);
+	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
+	player.m_sprite = &tankSprite;
+	player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
 
-	Player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
+
+	turretBase.SetParent(&player);
+	turret.SetParent(&turretBase);
+	
+
 
 	//	Main Game Loop
 
@@ -37,7 +38,7 @@ int main()
 		//	Update
 
 		float deltaTime = window.GetFrameTime();
-		Player.Update(deltaTime);
+		player.Update(deltaTime);
 
 		//	Draw
 
@@ -45,9 +46,8 @@ int main()
 		{
 			window.ClearBackground(RAYWHITE);
 
-			textColour.DrawText("This is the window!", 190, 200, 20);
-
-			Player.Draw;
+			player.Draw();
+			turret.Draw();
 		}
 		EndDrawing();
 	}

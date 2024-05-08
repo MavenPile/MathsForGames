@@ -11,6 +11,14 @@ GameObject::GameObject()
 	m_localScale = Math::Vector3(1, 1, 1);
 }
 
+//GameObject::GameObject(GameObject* parent)
+//{
+//	m_parent = parent;
+//	m_localPos = Math::Vector3(0, 0, 1);
+//	m_localRot = 0;
+//	m_localScale = Math::Vector3(1, 1, 1);
+//}
+
 //	METHODS
 
 void GameObject::SetParent(GameObject* newParent)
@@ -67,14 +75,20 @@ void GameObject::Update(float deltaTime)
 {
 	OnUpdate(deltaTime);
 
-		//	TODO: iterate through children and call Update on them
+	for (int i = 0; i < m_children.size(); i++)
+	{
+		m_children[i]->Update(deltaTime);
+	}
 }
 
 void GameObject::Draw()
 {
 	OnDraw();
 
-	//	TODO: iterate through children and call Update on them
+	for (int i = 0; i < m_children.size(); i++)
+	{
+		m_children[i]->Draw();
+	}
 }
 
 float GameObject::AngleFrom2D(float x, float y)

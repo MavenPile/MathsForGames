@@ -1,5 +1,4 @@
 #include "SpriteObject.h"
-#include "Utils.h"			//	for Rad2Deg
 
 SpriteObject::SpriteObject()
 {
@@ -19,6 +18,6 @@ void SpriteObject::OnDraw()
 		raylib::Rectangle(pos.x, pos.y, m_sprite->width * scl.x, m_sprite->height * scl.y),
 		raylib::Vector2(m_sprite->width * m_origin.x * scl.x, m_sprite->height * m_origin.y * scl.y),
 		rot,
-		raylib::Color(m_tint.rgba)
+		raylib::Color(m_tint.colour)
 	);
 }

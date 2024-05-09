@@ -16,6 +16,8 @@ public:
 
 	void SetTurret(TankTurret* turret);
 
+	float reloadBuffer = 0.f;
+
 protected:
 
 	void OnUpdate(float deltaTime) override;

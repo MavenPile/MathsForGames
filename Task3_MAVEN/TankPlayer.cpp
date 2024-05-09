@@ -71,13 +71,10 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	//	BULLET
 
-	float reload = 0.f;
-
-	if (IsKeyDown(KeyboardKey::KEY_C) && reload <= GetTime())
+	if (IsKeyDown(KeyboardKey::KEY_C) && reloadBuffer <= GetTime())
 	{
 		m_turret->Fire();
 
-		reload = GetTime() + 3;
+		reloadBuffer = GetTime() + 1;
 	}
-
 }

@@ -2,6 +2,7 @@
 #include "SpriteObject.h"
 #include "TankPlayer.h"
 #include "TankTurret.h"
+#include <iostream>
 
 int main()
 {
@@ -16,7 +17,6 @@ int main()
 	raylib::Window window(screenWidth, screenHeight, "Tank Game!");
 
 	SetTargetFPS(60);
-
 
 	TankPlayer player;
 	player.SetParent(&root);
@@ -35,6 +35,8 @@ int main()
 	turret.SetLocalPosition(25, 0);
 
 	TankTurret bulletSpawn;
+	raylib::Texture2D bulletSprite("res/Sprites/bulletBlue1_outline.png");
+	bulletSpawn.SetBulletSprite(&bulletSprite);
 	bulletSpawn.SetParent(&turret);
 	bulletSpawn.SetLocalPosition(25,0);
 	player.SetTurret(&bulletSpawn);

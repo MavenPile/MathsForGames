@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AABBCollider.h" />
     <ClInclude Include="BulletObject.h" />
+    <ClInclude Include="CircleCollider.h" />
+    <ClInclude Include="Collider.h" />
     <ClInclude Include="Colour.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="PlaneCollider.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="TankPlayer.h" />
     <ClInclude Include="TankTurret.h" />
@@ -143,9 +147,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AABBCollider.cpp" />
     <ClCompile Include="BulletObject.cpp" />
+    <ClCompile Include="CircleCollider.cpp" />
+    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlaneCollider.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TankPlayer.cpp" />
     <ClCompile Include="TankTurret.cpp" />

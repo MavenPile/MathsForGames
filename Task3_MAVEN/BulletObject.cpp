@@ -21,15 +21,26 @@ void BulletObject::OnUpdate(float deltaTime)
 {
 	const float SPEED = 500.f;
 
-	Math::Vector3 vel;
-
 	Math::Vector3 DIRECTION = GetForward();
 
 	DIRECTION.Normalise();	//	sets magnitude to 1
 
-	vel = DIRECTION * SPEED;
+	Math::Vector3 vel = DIRECTION * SPEED;
 
 	Math::Vector3 finalVel = vel * deltaTime;
 
 	Translate(finalVel);
+
+	//	DELETE
+
+	float lifeTimer = 0.f;
+
+	if (lifeTimer == 0.f)
+	{
+		lifeTimer = GetTime() + 2;
+	}
+	else if (lifeTimer <= GetTime())
+	{
+
+	}
 }

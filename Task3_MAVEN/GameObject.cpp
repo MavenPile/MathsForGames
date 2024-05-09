@@ -84,21 +84,47 @@ void GameObject::OnDraw()
 
 void GameObject::Update(float deltaTime)
 {
-	OnUpdate(deltaTime);
+	std::vector<GameObject*> copyChildren;
+
+	//copyChildren.resize(m_children.size());
 
 	for (int i = 0; i < m_children.size(); i++)
 	{
-		m_children[i]->Update(deltaTime);
+		copyChildren.push_back(m_children[i]);
+	}
+	OnUpdate(deltaTime);
+
+	//for (int i = 0; i < m_children.size(); i++)
+	//{
+	//	m_children[i]->Update(deltaTime);
+	//}
+
+	for (int i = 0; i < copyChildren.size(); i++)
+	{
+		copyChildren[i]->Update(deltaTime);
 	}
 }
 
 void GameObject::Draw()
 {
-	OnDraw();
+
+	std::vector<GameObject*> copyChildren;
 
 	for (int i = 0; i < m_children.size(); i++)
 	{
-		m_children[i]->Draw();
+		copyChildren.push_back(m_children[i]);
+	}
+
+
+	OnDraw();
+
+	//for (int i = 0; i < m_children.size(); i++)
+	//{
+	//	m_children[i]->Draw();
+	//}
+	for (int i = 0; i < copyChildren.size(); i++)
+	{
+		copyChildren[i]->Draw();
 	}
 }
 

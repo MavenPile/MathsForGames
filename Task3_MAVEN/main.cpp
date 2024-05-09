@@ -13,23 +13,20 @@ int main()
 
 	SetTargetFPS(60);
 
-	SpriteObject turret;
-	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
-	turret.m_sprite = &turretSprite;
-	turret.SetLocalPosition(25, 0);
-
-	GameObject turretBase;
-
-	TankPlayer player(&turretBase);
+	TankPlayer player;
 	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 	player.m_sprite = &tankSprite;
 	player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
 
-
+	GameObject turretBase;
 	turretBase.SetParent(&player);
-	turret.SetParent(&turretBase);
-	
+	player.SetTurretPivot(&turretBase);
 
+	SpriteObject turret;
+	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	turret.m_sprite = &turretSprite;
+	turret.SetLocalPosition(25, 0);
+	turret.SetParent(&turretBase);
 
 	//	Main Game Loop
 

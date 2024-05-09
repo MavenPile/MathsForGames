@@ -8,7 +8,7 @@ public:
 
 	GameObject* m_turret;
 
-	TankPlayer(GameObject* turret);
+	void SetTurretPivot(GameObject* turret);
 
 protected:
 

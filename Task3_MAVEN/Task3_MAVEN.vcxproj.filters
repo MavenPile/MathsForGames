@@ -16,6 +16,9 @@
     <Filter Include="MathHeaders">
       <UniqueIdentifier>{b2ff8a92-a622-4300-aeb2-8904c5c3f497}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ColliderHeaders">
+      <UniqueIdentifier>{e19c3cf8-4fc7-461d-b2a8-6eaa8bc42ba5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Utils.h">
@@ -51,17 +54,17 @@
     <ClInclude Include="BulletObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AABBCollider.h">
+      <Filter>ColliderHeaders</Filter>
     </ClInclude>
     <ClInclude Include="CircleCollider.h">
-      <Filter>Header Files</Filter>
+      <Filter>ColliderHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="AABBCollider.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Collider.h">
+      <Filter>ColliderHeaders</Filter>
     </ClInclude>
     <ClInclude Include="PlaneCollider.h">
-      <Filter>Header Files</Filter>
+      <Filter>ColliderHeaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,18 +87,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BulletObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CircleCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AABBCollider.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlaneCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

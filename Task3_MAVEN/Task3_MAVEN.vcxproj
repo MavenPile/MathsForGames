@@ -147,13 +147,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AABBCollider.cpp" />
     <ClCompile Include="BulletObject.cpp" />
-    <ClCompile Include="CircleCollider.cpp" />
-    <ClCompile Include="Collider.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PlaneCollider.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TankPlayer.cpp" />
     <ClCompile Include="TankTurret.cpp" />

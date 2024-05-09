@@ -5,10 +5,19 @@
 GameObject::GameObject()
 {
 	m_parent = nullptr;
-	
 	m_localPos = Math::Vector3(0, 0, 1);	//	Z axis is 1 so children properly inherit translations. Z axis is NOT a direction in 2D space
 	m_localRot = 0;
 	m_localScale = Math::Vector3(1, 1, 1);
+}
+
+GameObject* GameObject::GetRoot()
+{
+	return m_root;
+}
+
+void GameObject::SetRoot(GameObject* root)
+{
+	m_root = root;
 }
 
 //GameObject::GameObject(GameObject* parent)

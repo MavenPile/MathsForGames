@@ -1,4 +1,5 @@
 #include "TankPlayer.h"
+#include "BulletObject.h"
 
 void TankPlayer::SetTurretPivot(GameObject* turret)
 {
@@ -62,4 +63,12 @@ void TankPlayer::OnUpdate(float deltaTime)
 	float finalTRot = tRot * deltaTime;
 
 	m_turret->Rotate(finalTRot);
+
+	//	BULLET
+
+	if (IsKeyDown(KeyboardKey::KEY_C))
+	{
+		//BulletObject().Initialise();
+	}
+
 }

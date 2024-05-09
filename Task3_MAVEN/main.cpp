@@ -1,6 +1,7 @@
 #include "raylib-cpp.hpp"
 #include "SpriteObject.h"
 #include "TankPlayer.h"
+#include "TankTurret.h"
 
 int main()
 {
@@ -13,7 +14,11 @@ int main()
 
 	SetTargetFPS(60);
 
+	GameObject root;
+	GameObject::SetRoot(&root);
+
 	TankPlayer player;
+	player.SetParent(&root);
 	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 	player.m_sprite = &tankSprite;
 	player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
@@ -25,8 +30,12 @@ int main()
 	SpriteObject turret;
 	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
 	turret.m_sprite = &turretSprite;
-	turret.SetLocalPosition(25, 0);
 	turret.SetParent(&turretBase);
+	turret.SetLocalPosition(25, 0);
+
+	TankTurret bulletSpawn;
+	bulletSpawn.SetParent(&turret);
+	bulletSpawn.SetLocalPosition(25,0);
 
 	//	Main Game Loop
 
@@ -35,7 +44,7 @@ int main()
 		//	Update
 
 		float deltaTime = window.GetFrameTime();
-		player.Update(deltaTime);
+		root.Update(deltaTime);
 
 		//	Draw
 
@@ -43,8 +52,7 @@ int main()
 		{
 			window.ClearBackground(RAYWHITE);
 
-			player.Draw();
-			turret.Draw();
+			root.Draw();
 		}
 		EndDrawing();
 	}

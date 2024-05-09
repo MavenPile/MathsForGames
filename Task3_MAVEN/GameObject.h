@@ -11,6 +11,8 @@ private:
 
 	const float pi = 3.14159265359;
 
+	static GameObject* m_root;
+
 protected:
 	
 	//	MEMBER VARIABLES
@@ -40,6 +42,10 @@ public:
 	//GameObject(GameObject* parent);
 
 	//	METHODS
+
+	GameObject* GetRoot();
+
+	static void SetRoot(GameObject* root);
 
 	void SetParent(GameObject* newParent);
 

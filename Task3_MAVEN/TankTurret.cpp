@@ -1,11 +1,7 @@
 #include "TankTurret.h"
-
-TankTurret::TankTurret(TankPlayer* parent)
-{
-
-}
+#include "BulletObject.h"
 
 void TankTurret::OnUpdate(float deltaTime) const
 {
-
+	//BulletObject();
 }

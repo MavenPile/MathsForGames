@@ -203,5 +203,7 @@ namespace Math
         {
             return !(*this == rhs); //  because inequality is the opposite of the equality operator
         }
+
+        
 	};
 }

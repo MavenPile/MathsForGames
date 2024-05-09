@@ -1,7 +1,12 @@
 #include "TankPlayer.h"
-#include "BulletObject.h"
+#include "TankTurret.h"
 
-void TankPlayer::SetTurretPivot(GameObject* turret)
+void TankPlayer::SetTurretPivot(GameObject* turretPivot)
+{
+	m_turretPivot = turretPivot;
+}
+
+void TankPlayer::SetTurret(TankTurret* turret)
 {
 	m_turret = turret;
 }
@@ -62,13 +67,17 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	float finalTRot = tRot * deltaTime;
 
-	m_turret->Rotate(finalTRot);
+	m_turretPivot->Rotate(finalTRot);
 
 	//	BULLET
 
-	if (IsKeyDown(KeyboardKey::KEY_C))
+	float reload = 0.f;
+
+	if (IsKeyDown(KeyboardKey::KEY_C) && reload <= GetTime())
 	{
-		//BulletObject().Initialise();
+		m_turret->Fire();
+
+		reload = GetTime() + 3;
 	}
 
 }

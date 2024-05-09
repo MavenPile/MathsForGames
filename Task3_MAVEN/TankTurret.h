@@ -2,10 +2,11 @@
 
 #include "SpriteObject.h"
 
-class TankTurret : public SpriteObject
+class TankTurret : public GameObject
 {
 public:
 
+	void Fire();
 
 protected:
 

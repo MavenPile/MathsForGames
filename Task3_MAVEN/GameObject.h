@@ -11,8 +11,6 @@ private:
 
 	const float pi = 3.14159265359;
 
-	static GameObject* m_root;
-
 protected:
 	
 	//	MEMBER VARIABLES

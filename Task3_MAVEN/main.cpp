@@ -7,6 +7,9 @@ int main()
 {
 	//	Initialisation
 
+	GameObject root;
+	GameObject::SetRoot(&root);
+
 	int screenWidth = 800;
 	int screenHeight = 600;
 	raylib::Color textColour = raylib::Color::LightGray();
@@ -14,8 +17,6 @@ int main()
 
 	SetTargetFPS(60);
 
-	GameObject root;
-	GameObject::SetRoot(&root);
 
 	TankPlayer player;
 	player.SetParent(&root);
@@ -36,6 +37,7 @@ int main()
 	TankTurret bulletSpawn;
 	bulletSpawn.SetParent(&turret);
 	bulletSpawn.SetLocalPosition(25,0);
+	player.SetTurret(&bulletSpawn);
 
 	//	Main Game Loop
 

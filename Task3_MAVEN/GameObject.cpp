@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+static GameObject* m_root;
+
 GameObject::GameObject()
 {
 	m_parent = nullptr;

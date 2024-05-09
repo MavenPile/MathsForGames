@@ -5,7 +5,7 @@ class BulletObject : public SpriteObject
 {
 public:
 
-	BulletObject(Math::Vector3 localPos, float localRot, Math::Vector3 localScl);
+	//BulletObject(Math::Vector3 localPos, float localRot, Math::Vector3 localScl);
 
 	void Initialise();
 

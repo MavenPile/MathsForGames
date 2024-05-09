@@ -2,13 +2,19 @@
 
 #include "SpriteObject.h"
 
+class TankTurret;
+
 class TankPlayer : public SpriteObject
 {
 public:
 
-	GameObject* m_turret;
+	GameObject* m_turretPivot;
 
-	void SetTurretPivot(GameObject* turret);
+	void SetTurretPivot(GameObject* turretPivot);
+
+	TankTurret* m_turret;
+
+	void SetTurret(TankTurret* turret);
 
 protected:
 

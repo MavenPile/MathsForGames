@@ -1,13 +1,13 @@
 #include "BulletObject.h"
 
-BulletObject::BulletObject(Math::Vector3 localPos, float localRot, Math::Vector3 localScl)
-{
-	SetLocalPosition(localPos);
-
-	SetLocalRotation(localRot);
-
-	SetLocalScale(localScl);
-}
+//BulletObject::BulletObject(Math::Vector3 localPos, float localRot, Math::Vector3 localScl)
+//{
+//	SetLocalPosition(localPos);
+//
+//	SetLocalRotation(localRot);
+//
+//	SetLocalScale(localScl);
+//}
 
 void BulletObject::Initialise()
 {
@@ -19,7 +19,7 @@ void BulletObject::Initialise()
 
 void BulletObject::OnUpdate(float deltaTime)
 {
-	const float SPEED = 50.f;
+	const float SPEED = 500.f;
 
 	Math::Vector3 vel;
 

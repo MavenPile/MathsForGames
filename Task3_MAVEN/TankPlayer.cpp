@@ -1,6 +1,6 @@
 #include "TankPlayer.h"
 
-TankPlayer::TankPlayer(GameObject* turret)
+void TankPlayer::SetTurretPivot(GameObject* turret)
 {
 	m_turret = turret;
 }
@@ -33,11 +33,11 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	if (IsKeyDown(KeyboardKey::KEY_A))
 	{
-		rot += ROTSPEED;
+		rot -= ROTSPEED;
 	}
 	if (IsKeyDown(KeyboardKey::KEY_D))
 	{
-		rot -= ROTSPEED;
+		rot += ROTSPEED;
 	}
 
 	float finalRot = (rot * deltaTime);
@@ -46,7 +46,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	//	TURRET
 
-	const float TROTSPEED = 5.f;
+	const float TROTSPEED = 3.f;
 
 	float tRot = 0.f;
 

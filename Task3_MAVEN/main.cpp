@@ -41,6 +41,25 @@ int main()
 	bulletSpawn.SetLocalPosition(25,0);
 	player.SetTurret(&bulletSpawn);
 
+	//	MAP
+
+	std::vector<SpriteObject> mapTiles(20);
+
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; i++)
+		{
+
+		}
+	}
+
+
+	SpriteObject tile;
+	raylib::Texture2D tileSprite("res/Sprites/tileSand1.png");
+	tile.m_sprite = &tileSprite;
+	tile.SetLocalPosition(50, 50);
+	tile.SetParent(&root);
+
 	//	Main Game Loop
 
 	while(!window.ShouldClose())

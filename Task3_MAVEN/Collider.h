@@ -9,6 +9,10 @@
 
 struct Collider
 {
+public:	//	CONSTRUCTOR
+
+	Collider() {}
+
 public:	//	UTILITIES
 
 	constexpr float Min(float a, float b) 

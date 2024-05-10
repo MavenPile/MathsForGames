@@ -114,6 +114,11 @@ namespace Math
             return temp;
         }
 
+        float DistanceTo(const Vector3 other)
+        {
+            return (*this - other).Magnitude();
+        }
+
     public: //  OPERATORS
 
         float& operator [] (int dim)

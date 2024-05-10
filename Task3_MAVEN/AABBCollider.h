@@ -8,8 +8,6 @@ struct AABBCollider : public Collider
 	Math::Vector3 m_min, m_max;
 
 	//	CONSTRUCTORS
-	
-	AABBCollider() {}
 
 	AABBCollider(const Math::Vector3& min, const Math::Vector3& max) : m_min(min), m_max(max) {}
 

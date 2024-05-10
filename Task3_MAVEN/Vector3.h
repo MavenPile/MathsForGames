@@ -52,14 +52,12 @@ namespace Math
 
         float Magnitude() const
         {
-            float temp = (x * x) + (y * y) + (z * z);
+            return sqrt(MagnitudeSqr());
+        }
 
-            if (0 >= temp)
-            {
-                return 0.f;
-            }
-
-            return sqrt(temp);
+        float MagnitudeSqr() const
+        {
+            return (x * x) + (y * y) + (z * z);
         }
 
         Vector3 Normalised() const

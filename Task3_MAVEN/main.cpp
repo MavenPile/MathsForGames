@@ -11,8 +11,8 @@ int main()
 	GameObject root;
 	GameObject::SetRoot(&root);
 
-	int screenWidth = 800;
-	int screenHeight = 600;
+	int screenWidth = 1600;
+	int screenHeight = 900;
 	raylib::Color textColour = raylib::Color::LightGray();
 	raylib::Window window(screenWidth, screenHeight, "Tank Game!");
 
@@ -54,6 +54,11 @@ int main()
 
 		BeginDrawing();
 		{
+			DrawText("Press W and S to move forward and backward.", 25, 25, 20, textColour);
+			DrawText("Press A and D to turn left and right.", 25, 50, 20, textColour);
+			DrawText("Press Q and E to rotate the turret.", 25, 75, 20, textColour);
+			DrawText("Press C to fire a bullet.", 25, 100, 20, textColour);
+
 			window.ClearBackground(RAYWHITE);
 
 			root.Draw();

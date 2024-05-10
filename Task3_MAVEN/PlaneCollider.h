@@ -11,8 +11,6 @@ struct PlaneCollider : public Collider
 
 	//	CONSTRUCTORS
 
-	PlaneCollider() {}
-
 	PlaneCollider(float x, float y, float d) : m_N(x,y,1), m_d(d) {}
 
 	PlaneCollider(const Math::Vector3& n, float d) : m_N(n), m_d(d) {}

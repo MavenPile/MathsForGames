@@ -11,8 +11,6 @@ struct CircleCollider : public Collider
 
 	//	CONSTRUCTORS
 
-	CircleCollider() {}
-
 	CircleCollider(const Math::Vector3& p, float r) : m_center(p), m_radius(r) {}
 
 	//	MEMBER METHODS

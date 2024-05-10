@@ -66,6 +66,9 @@
     <ClInclude Include="PlaneCollider.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>ColliderHeaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

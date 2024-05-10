@@ -9,11 +9,11 @@
 
 struct Collider
 {
-public:	//	CONSTRUCTOR
+	//	CONSTRUCTORS
 
 	Collider() {}
 
-public:	//	UTILITIES
+	//	UTILITIES
 
 	constexpr float Min(float a, float b) 
 	{

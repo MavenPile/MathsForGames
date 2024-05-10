@@ -18,6 +18,23 @@ int main()
 
 	SetTargetFPS(60);
 
+	//	MAP
+
+	SpriteObject barrel;
+	raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
+	barrel.m_sprite = &barrelSprite;
+	barrel.SetParent(&root);
+	barrel.SetLocalPosition(500, 500);
+
+
+	//SpriteObject tile;
+	//raylib::Texture2D tileSprite("res/Sprites/tileSand1.png");
+	//tile.m_sprite = &tileSprite;
+	//tile.SetLocalPosition(50, 50);
+	//tile.SetParent(&root);
+
+	//	PLAYER
+
 	TankPlayer player;
 	player.SetParent(&root);
 	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
@@ -40,25 +57,6 @@ int main()
 	bulletSpawn.SetParent(&turret);
 	bulletSpawn.SetLocalPosition(25,0);
 	player.SetTurret(&bulletSpawn);
-
-	//	MAP
-
-	std::vector<SpriteObject> mapTiles(20);
-
-	for (int i = 0; i < 10; i++)
-	{
-		for (int j = 0; j < 10; i++)
-		{
-
-		}
-	}
-
-
-	SpriteObject tile;
-	raylib::Texture2D tileSprite("res/Sprites/tileSand1.png");
-	tile.m_sprite = &tileSprite;
-	tile.SetLocalPosition(50, 50);
-	tile.SetParent(&root);
 
 	//	Main Game Loop
 

@@ -1,31 +1,17 @@
 #pragma once
 
-#define _USE_MATH_DEFINES
-#include <cmath>
+//	DEFINITIONS
 
-#include "Colour.h"
+#define pi 3.1415f;
 
-namespace MathClasses
-{
-    // Maximum tolerance for comparing floats
-	constexpr float MAX_FLOAT_DELTA = 0.00001f;
+#define Rad2Deg 180.f / pi
 
-	inline float ApproximatelyEquals(float a, float b)
-	{
-		return fabsf(a - b) < MAX_FLOAT_DELTA;
-	}
+#define Deg2Rad pi / 180.f
 
-    inline float AngleFrom2D(float x, float y)
-    {
-        return atan2f(y, x);
-    }
+//	FLT UTILS
 
-    // Constant for Pi
-    constexpr float Pi = 3.14159265358979323846264338327950288f;
+constexpr float Minf(float a, float b) { return a < b ? a : b; }
 
-    // Deg2Rad
-    constexpr float Deg2Rad = Pi * 2.0f / 360.0f;
+constexpr float Maxf(float a, float b) { return a > b ? a : b; }
 
-    // Rad2Deg
-    constexpr float Rad2Deg = 1.0f / Deg2Rad;
-}
+constexpr float Clampf(float t, float a, float b) { return Maxf(a, Minf(b, t)); }

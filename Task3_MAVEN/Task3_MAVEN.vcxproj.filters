@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Colour.h">
       <Filter>MathHeaders</Filter>
     </ClInclude>
@@ -69,7 +66,7 @@
     <ClInclude Include="Ray.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ShapeUtils.h">
+    <ClInclude Include="Utils.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,16 +80,7 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TankPlayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TankTurret.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BulletObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

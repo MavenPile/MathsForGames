@@ -1,19 +1,34 @@
 #pragma once
 
 #include "SpriteObject.h"
+#include "BulletObject.h"
 
 class TankTurret : public GameObject
 {
 public:
 
-	void Fire();
+	//	VARIABLES
 
 	raylib::Texture2D* m_bulletSprite;
 
-	void SetBulletSprite(raylib::Texture2D* bulletSprite);
+	//	METHODS
 
-protected:
+	void Fire()
+	{
+		BulletObject* bullet = new BulletObject();
 
-	void OnUpdate(float deltaTime) const;
+		bullet->m_sprite = m_bulletSprite;
+
+		bullet->SetParent(GetRoot());
+
+		bullet->SetLocalPosition(GetWorldPosition());
+		bullet->SetLocalRotation(GetWorldRotation());
+		bullet->SetLocalScale(GetWorldScale());
+	}
+
+	void SetBulletSprite(raylib::Texture2D* bulletSprite)
+	{
+		m_bulletSprite = bulletSprite;
+	}
 };
 

@@ -22,14 +22,6 @@ void GameObject::SetRoot(GameObject* root)
 	m_root = root;
 }
 
-//GameObject::GameObject(GameObject* parent)
-//{
-//	m_parent = parent;
-//	m_localPos = Math::Vector3(0, 0, 1);
-//	m_localRot = 0;
-//	m_localScale = Math::Vector3(1, 1, 1);
-//}
-
 //	METHODS
 
 void GameObject::SetParent(GameObject* newParent)
@@ -126,16 +118,6 @@ float GameObject::AngleFrom2D(float x, float y)
 const float GameObject::AngleFrom2D(float x, float y) const
 {
 	return atan2(y, x);
-}
-
-float GameObject::Rad2Deg(float radians)
-{
-	return radians * (180 / pi);
-}
-
-const float GameObject::Rad2Deg(float radians) const
-{
-	return radians * (180 / pi);
 }
 
 //	LOCAL POS/ROT/SCALE METHODS

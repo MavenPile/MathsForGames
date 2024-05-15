@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Collider.h"
+#include "Vector3.h"
+#include "Utils.h"
 #include "AABBCollider.h"
 #include "PlaneCollider.h"
 #include "GameObject.h"
@@ -31,8 +33,8 @@ struct CircleCollider : public Collider
 
 		for (unsigned int i = 0; i < count; i++, points++)
 		{
-			min = Min(min, *points);
-			max = Max(max, *points);
+			min = Math::Vector3::MinV(min, *points);
+			max = Math::Vector3::MaxV(max, *points);
 		}
 
 		m_center = (min + max) * 0.5f;
@@ -46,8 +48,8 @@ struct CircleCollider : public Collider
 
 		for (auto& p : points)
 		{
-			min = Min(min, p);
-			max = Max(max, p);
+			min = Math::Vector3::MinV(min, p);
+			max = Math::Vector3::MaxV(max, p);
 		}
 
 		m_center = (min + max) * 0.5f;

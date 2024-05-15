@@ -46,8 +46,8 @@ struct AABBCollider : public Collider
 
 		for (unsigned int i = 0; i < count; i++, points++)
 		{
-			m_min = Min(m_min, *points);
-			m_max = Max(m_max, *points);
+			m_min = Math::Vector3::MinV(m_min, *points);
+			m_max = Math::Vector3::MaxV(m_max, *points);
 		}
 	}
 
@@ -58,8 +58,8 @@ struct AABBCollider : public Collider
 
 		for (auto& p : points)
 		{
-			m_min = Min(m_min, p);
-			m_max = Max(m_max, p);
+			m_min = Math::Vector3::MinV(m_min, p);
+			m_max = Math::Vector3::MaxV(m_max, p);
 		}
 	}
 
@@ -75,7 +75,7 @@ struct AABBCollider : public Collider
 
 	Math::Vector3 ClosestPoint(const Math::Vector3& p)
 	{		
-		return clamp(p, m_min, m_max);
+		return Math::Vector3::ClampV(p, m_min, m_max);
 	}
 
 	bool isEmpty()

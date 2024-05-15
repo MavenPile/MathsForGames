@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ShapeUtils.h"
+#include "Utils.h"
 
 class GameObject;
 
@@ -22,7 +22,7 @@ struct Collider
 		m_owner = owner;
 	}
 
-	//	UTILITIES
+	//	METHODS
 
 	virtual void CollisionCheck(Collider* other) {}
 };

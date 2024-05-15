@@ -64,7 +64,7 @@ int main()
 
 	//	Main Game Loop
 
-	std::vector<Collider> colliders;
+	std::vector<Collider> a_colliders;
 
 	while(!window.ShouldClose())
 	{
@@ -75,7 +75,19 @@ int main()
 
 		//	COLLISION
 
+		colliders.clear();
 		root.GetAllChildColliders(colliders);
+
+		for (Collider* i : colliders)
+		{
+			for (Collider* j : colliders)
+			{
+				if (i != j)
+				{
+					i->CollisionCheck(j);
+				}
+			}
+		}
 
 		//	Draw
 
@@ -87,6 +99,7 @@ int main()
 			DrawText("Press C to fire a bullet.", 25, 100, 20, textColour);
 
 			window.ClearBackground(RAYWHITE);
+			window.DrawFPS();
 
 			root.Draw();
 		}

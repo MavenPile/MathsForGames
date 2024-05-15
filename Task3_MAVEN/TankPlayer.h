@@ -10,9 +10,9 @@ public:
 
 	//	VARIABLES
 
-	GameObject* m_turretPivot;
+	GameObject* m_turretPivot = nullptr;
 
-	TankTurret* m_turret;
+	TankTurret* m_turret = nullptr;
 
 	float reloadBuffer = 0.f;
 

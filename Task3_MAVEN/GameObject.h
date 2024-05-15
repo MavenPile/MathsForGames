@@ -1,7 +1,9 @@
 #pragma once
 
-#include <vector>
 #include "Collider.h"
+#include <vector>
+#include "Vector3.h"
+#include "Matrix3.h"
 
 class GameObject
 {
@@ -58,10 +60,6 @@ public:
 	float AngleFrom2D(float x, float y);
 
 	const float AngleFrom2D(float x, float y) const;
-
-	float Rad2Deg(float radians);
-
-	const float Rad2Deg(float radians) const;
 
 	//	LOCAL TRANSFORM METHODS
 

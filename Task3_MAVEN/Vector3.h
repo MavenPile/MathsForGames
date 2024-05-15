@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <cmath>
+#include "Utils.h"
 
 namespace Math
 {
@@ -207,6 +208,19 @@ namespace Math
             return !(*this == rhs); //  because inequality is the opposite of the equality operator
         }
 
-        
+        static Vector3 MinV(const Vector3& a, const Vector3& b)
+        {
+            return { Minf(a.x,b.x),Minf(a.y,b.y),1 };
+        }
+
+        static Vector3 MaxV(const Vector3& a, const Vector3& b)
+        {
+            return { Maxf(a.x,b.x),Maxf(a.y,b.y),1 };
+        }
+
+        static Vector3 ClampV(const Vector3& t, const Vector3& a, const Vector3& b)
+        {
+            return MaxV(a, MinV(b, t));
+        }
 	};
 }

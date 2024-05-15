@@ -3,6 +3,7 @@
 #include "TankPlayer.h"
 #include "TankTurret.h"
 #include <iostream>
+#include "CircleCollider.h"
 
 int main()
 {
@@ -25,13 +26,9 @@ int main()
 	barrel.m_sprite = &barrelSprite;
 	barrel.SetParent(&root);
 	barrel.SetLocalPosition(500, 500);
+	//CircleCollider barrelCollider(barrel.m_origin, 50);
+	//barrel.SetCollider(barrelCollider);
 
-
-	//SpriteObject tile;
-	//raylib::Texture2D tileSprite("res/Sprites/tileSand1.png");
-	//tile.m_sprite = &tileSprite;
-	//tile.SetLocalPosition(50, 50);
-	//tile.SetParent(&root);
 
 	//	PLAYER
 
@@ -58,7 +55,13 @@ int main()
 	bulletSpawn.SetLocalPosition(25,0);
 	player.SetTurret(&bulletSpawn);
 
+	//	COLLIDERS
+
+
+
 	//	Main Game Loop
+
+	std::vector<Collider> colliders;
 
 	while(!window.ShouldClose())
 	{
@@ -66,6 +69,10 @@ int main()
 
 		float deltaTime = window.GetFrameTime();
 		root.Update(deltaTime);
+
+		//	COLLISION
+
+		root.GetAllChildColliders(colliders);
 
 		//	Draw
 

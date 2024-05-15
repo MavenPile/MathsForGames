@@ -72,16 +72,6 @@ const GameObject* GameObject::GetChild(size_t childIndex) const
 	return m_children[childIndex];
 }
 
-void GameObject::OnUpdate(float deltaTime)
-{
-
-}
-
-void GameObject::OnDraw()
-{
-
-}
-
 void GameObject::Update(float deltaTime)
 {
 	std::vector<GameObject*> copyChildren;
@@ -264,4 +254,43 @@ Math::Matrix3 GameObject::GetWorldMatrix() const
 	{
 		return m_parent->GetWorldMatrix() * GetLocalMatrix();
 	}
+}
+
+bool GameObject::CheckCollision()
+{
+		//	TODO:	Loop through and call Overlap() on all colliders
+	
+	return false;
+
+
+
+	//std::vector<GameObject*> copyChildren;
+
+	////copyChildren.resize(m_children.size());
+
+	//for (int i = 0; i < m_children.size(); i++)
+	//{
+	//	copyChildren.push_back(m_children[i]);
+	//}
+	//OnUpdate(deltaTime);
+
+	////for (int i = 0; i < m_children.size(); i++)
+	////{
+	////	m_children[i]->Update(deltaTime);
+	////}
+
+	//for (int i = 0; i < copyChildren.size(); i++)
+	//{
+	//	copyChildren[i]->Update(deltaTime);
+	//}
+}
+
+void GameObject::SetCollider(Collider* collider)
+{
+	m_collider = collider;
+}
+
+void GameObject::GetAllChildColliders(std::vector<Collider> v)
+{
+
 }

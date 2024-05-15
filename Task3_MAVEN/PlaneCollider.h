@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Collider.h"
 
 struct PlaneCollider : public Collider
@@ -10,6 +11,8 @@ struct PlaneCollider : public Collider
 	float m_d;
 
 	//	CONSTRUCTORS
+
+	PlaneCollider() {}
 
 	PlaneCollider(float x, float y, float d) : m_N(x,y,1), m_d(d) {}
 

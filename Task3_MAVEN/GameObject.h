@@ -1,9 +1,7 @@
 #pragma once
 
 #include <vector>
-
-#include "Vector3.h"
-#include "Matrix3.h"
+#include "Collider.h"
 
 class GameObject
 {
@@ -25,11 +23,13 @@ protected:
 
 	Math::Vector3 m_localScale;
 
+	Collider* m_collider = nullptr;
+
 	//	MEMBER METHODS
 
-	virtual void OnUpdate(float deltaTime);
+	virtual void OnUpdate(float deltaTime) {}
 
-	virtual void OnDraw();
+	virtual void OnDraw() {}
 
 public:
 
@@ -108,4 +108,18 @@ public:
 	Math::Vector3 GetWorldScale() const;
 
 	Math::Matrix3 GetWorldMatrix() const;
+
+	//	COLLISION
+
+	bool CheckCollision();
+
+	void SetCollider(Collider* collider);
+
+	virtual void Destroy() {}
+		//	remove itself from the children or as parent of other objects
+
+	virtual void OnCollision(Collider& other) {}
+		//	use dynamic cast to know what shapes the collision is occuring with
+
+	void GetAllChildColliders(std::vector<Collider> v);
 };

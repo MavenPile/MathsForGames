@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Collider.h"
 
 struct CircleCollider : public Collider
@@ -10,6 +11,8 @@ struct CircleCollider : public Collider
 	float m_radius;
 
 	//	CONSTRUCTORS
+
+	CircleCollider() {}
 
 	CircleCollider(const Math::Vector3& p, float r) : m_center(p), m_radius(r) {}
 

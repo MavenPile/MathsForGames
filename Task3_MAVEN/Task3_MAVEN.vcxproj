@@ -137,6 +137,7 @@
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="PlaneCollider.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="ShapeUtils.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="TankPlayer.h" />
     <ClInclude Include="TankTurret.h" />

@@ -290,7 +290,27 @@ void GameObject::SetCollider(Collider* collider)
 	m_collider = collider;
 }
 
-void GameObject::GetAllChildColliders(std::vector<Collider> v)
+void GameObject::Destroy()
 {
+	for (int i = 0; i < m_children.size(); i++)
+	{
+		m_children[i]->Destroy();
+	}
 
+	m_parent->m_children.erase(std::remove(m_parent->m_children.begin(), m_parent->m_children.end(), this), m_parent->m_children.end());
+
+	this->m_parent = nullptr;
+}
+
+void GameObject::GetAllChildColliders(std::vector<Collider*> colVec)
+{
+	if (m_collider != nullptr)
+	{
+		colVec.push_back(m_collider);
+	}
+
+	for (int i = 0; i < m_children.size(); i++)
+	{
+		m_children[i]->GetAllChildColliders(colVec);
+	}
 }

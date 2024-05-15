@@ -2,6 +2,13 @@
 
 #include "Vector3.h"
 #include "Matrix3.h"
+#include <vector>
+
+#define pi 3.14159265359f;
+
+//#define Rad2Deg (180.f / pi)
+//
+//#define Deg2Rad (pi / 180.f)
 
 constexpr float Min(float a, float b)
 {

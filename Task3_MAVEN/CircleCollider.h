@@ -1,6 +1,9 @@
 #pragma once
 
 #include "Collider.h"
+#include "AABBCollider.h"
+#include "PlaneCollider.h"
+#include "GameObject.h"
 
 struct CircleCollider : public Collider
 {
@@ -14,7 +17,10 @@ struct CircleCollider : public Collider
 
 	CircleCollider() {}
 
-	CircleCollider(const Math::Vector3& p, float r) : m_center(p), m_radius(r) {}
+	CircleCollider(const Math::Vector3& p, float r, GameObject* owner) : m_center(p), m_radius(r)
+	{
+		m_owner = owner;
+	}
 
 	//	MEMBER METHODS
 
@@ -55,11 +61,20 @@ struct CircleCollider : public Collider
 		return toPoint.MagnitudeSqr() <= (m_radius * m_radius);
 	}
 
-	bool Overlaps(AABBCollider& aabb) const
+	bool Overlaps(AABBCollider* aabb) const
 	{
-		auto diff = aabb.ClosestPoint(m_center) - m_center;
+		auto diff = aabb->ClosestPoint(m_center) - m_center;
 
 		return diff.Dot(diff) <= (m_radius * m_radius);
+	}
+
+	bool Overlaps(CircleCollider* other) const
+	{
+		auto toPoint = other->m_center - m_center;
+
+		float totalRad = m_radius + other->m_radius;
+
+		return toPoint.MagnitudeSqr() <= (totalRad * totalRad);
 	}
 
 	Math::Vector3 ClosestPoint(const Math::Vector3& p) const
@@ -72,6 +87,43 @@ struct CircleCollider : public Collider
 		}
 
 		return m_center + toPoint;
+	}
+
+	//	COLLISION
+
+	void CollisionCheck(Collider* other) override
+	{
+		CircleCollider* otherC = dynamic_cast<CircleCollider*>(other);
+			//	check if other collider is a CircleCollider()
+
+		if (otherC != nullptr)
+		{
+			if (Overlaps(otherC))
+			{
+				m_owner->OnCollision(other);
+			}
+		}
+
+
+		AABBCollider* aabb = dynamic_cast<AABBCollider*>(other);
+
+		if (aabb != nullptr)
+		{
+			if (Overlaps(aabb))
+			{
+				m_owner->OnCollision(other);
+			}
+		}
+
+		//PlaneCollider* plane = dynamic_cast<PlaneCollider*>(other);
+
+		//if (plane != nullptr)
+		//{
+		//	if (Overlaps(plane))
+		//	{
+
+		//	}
+		//}
 	}
 };
 

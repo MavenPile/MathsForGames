@@ -8,15 +8,23 @@ class TankPlayer : public SpriteObject
 {
 public:
 
-	GameObject* m_turretPivot;
+	//	VARIABLES
 
-	void SetTurretPivot(GameObject* turretPivot);
+	GameObject* m_turretPivot;
 
 	TankTurret* m_turret;
 
-	void SetTurret(TankTurret* turret);
-
 	float reloadBuffer = 0.f;
+
+	//	CONSTRUCTORS
+
+	TankPlayer();
+
+	//	METHODS
+
+	void SetTurretPivot(GameObject* turretPivot);
+
+	void SetTurret(TankTurret* turret);
 
 protected:
 

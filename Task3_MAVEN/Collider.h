@@ -1,11 +1,6 @@
 #pragma once
 
-#include <vector>
 #include "ShapeUtils.h"
-#include "AABBCollider.h"
-#include "CircleCollider.h"
-#include "PlaneCollider.h"
-#include "GameObject.h"
 
 class GameObject;
 
@@ -13,8 +8,22 @@ struct Collider
 {
 	//	VARIABLES
 
-	GameObject* m_owner = nullptr;
+	GameObject* m_owner;
+
+	//	CONSTRUCTORS
+
+	Collider()
+	{
+		m_owner = nullptr;
+	}
+
+	Collider(GameObject* owner)
+	{
+		m_owner = owner;
+	}
 
 	//	UTILITIES
+
+	virtual void CollisionCheck(Collider* other) {}
 };
 

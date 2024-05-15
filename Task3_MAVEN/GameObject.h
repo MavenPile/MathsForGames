@@ -5,10 +5,6 @@
 
 class GameObject
 {
-private:
-
-	const float pi = 3.14159265359;
-
 protected:
 	
 	//	MEMBER VARIABLES
@@ -115,11 +111,11 @@ public:
 
 	void SetCollider(Collider* collider);
 
-	virtual void Destroy() {}
+	virtual void Destroy();
 		//	remove itself from the children or as parent of other objects
 
-	virtual void OnCollision(Collider& other) {}
+	virtual void OnCollision(Collider* other) {}
 		//	use dynamic cast to know what shapes the collision is occuring with
 
-	void GetAllChildColliders(std::vector<Collider> v);
+	void GetAllChildColliders(std::vector<Collider*> colVec);
 };

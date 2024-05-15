@@ -1,5 +1,11 @@
 #include "TankPlayer.h"
 #include "TankTurret.h"
+#include "CircleCollider.h"
+
+TankPlayer::TankPlayer()
+{
+	m_collider = new CircleCollider(m_localPos, 50, this);
+}
 
 void TankPlayer::SetTurretPivot(GameObject* turretPivot)
 {
@@ -13,6 +19,8 @@ void TankPlayer::SetTurret(TankTurret* turret)
 
 void TankPlayer::OnUpdate(float deltaTime)
 {
+	//	MOVEMENT
+	
 	const float MOVESPEED = 150.f;
 
 	float yMove = 0.f;
@@ -50,7 +58,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	Rotate(finalRot);
 
-	//	TURRET
+	//	ROTATE TURRET
 
 	const float TROTSPEED = 3.f;
 
@@ -69,7 +77,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	m_turretPivot->Rotate(finalTRot);
 
-	//	BULLET
+	//	FIRE BULLET
 
 	if (IsKeyDown(KeyboardKey::KEY_C) && reloadBuffer <= GetTime())
 	{

@@ -9,15 +9,18 @@ int main()
 {
 	//	Initialisation
 
-	GameObject root;
-	GameObject::SetRoot(&root);
-
 	int screenWidth = 1600;
 	int screenHeight = 900;
 	raylib::Color textColour = raylib::Color::LightGray();
 	raylib::Window window(screenWidth, screenHeight, "Tank Game!");
 
 	SetTargetFPS(60);
+
+	//	ROOT
+
+	GameObject root;
+	GameObject::SetRoot(&root);
+	std::vector<Collider*> colliders;
 
 	//	MAP
 

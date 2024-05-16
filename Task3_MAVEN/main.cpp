@@ -25,7 +25,7 @@ int main()
 
 	//	MAP
 
-	BarrelObject barrel(Math::Vector3(500,500,1), 50);
+	BarrelObject barrel(Math::Vector3(500,500,1));
 	raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
 	barrel.m_sprite = &barrelSprite;
 	barrel.SetParent(GameObject::GetRoot());
@@ -70,17 +70,28 @@ int main()
 		root.GetAllChildColliders(colliders);
 		std::cout << colliders.size() << std::endl;
 
-		for (Collider* i : colliders)
+		for (int i = 0; i < colliders.size(); i++)
 		{
-			for (Collider* j : colliders)
+			for (int j = 0; j < colliders.size(); j++)
 			{
-				if (i != j)
+				if (colliders[i]->m_owner != colliders[j]->m_owner)
 				{
-					std::cout << "detecting..." << std::endl;
-					i->CollisionCheck(j);
+					colliders[i]->CollisionCheck(colliders[j]);
 				}
 			}
 		}
+
+		//for (Collider* i : colliders)
+		//{
+		//	for (Collider* j : colliders)
+		//	{
+		//		if (i != j)
+		//		{
+		//			std::cout << "detecting..." << std::endl;
+		//			i->CollisionCheck(j);
+		//		}
+		//	}
+		//}
 
 		//	Draw
 

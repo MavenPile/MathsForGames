@@ -16,7 +16,7 @@ public:
 
 	//	CONSTRUCTORS
 	
-	BulletObject() { m_collider = new CircleCollider(m_localPos, 15, this); }
+	BulletObject() { m_collider = new CircleCollider(m_localPos, 10, this); }
 
 	//	METHODS
 
@@ -41,6 +41,15 @@ public:
 		//	COLLIDER MOVEMENT
 
 		dynamic_cast<CircleCollider*>(m_collider)->m_center = m_localPos;
+	}
+
+	void OnDraw() override
+	{
+		SpriteObject::OnDraw();
+
+		CircleCollider* collider = dynamic_cast<CircleCollider*>(m_collider);
+		
+		DrawCircleLines(collider->m_center.x, collider->m_center.y, collider->m_radius, GREEN);
 	}
 
 	void OnCollision(Collider* other) override

@@ -30,6 +30,6 @@ protected:
 
 	void OnUpdate(float deltaTime) override;
 
-
+	void OnDraw() override;
 };
 

@@ -76,6 +76,8 @@ struct CircleCollider : public Collider
 
 		float totalRad = m_radius + other->m_radius;
 
+		std::cout << (toPoint.MagnitudeSqr() <= (totalRad * totalRad)) << std::endl;
+
 		return toPoint.MagnitudeSqr() <= (totalRad * totalRad);
 	}
 
@@ -117,10 +119,10 @@ struct CircleCollider : public Collider
 
 		if (otherC != nullptr)
 		{
-			std::cout << "Collision detected!" << std::endl;
-			
 			if (Overlaps(otherC))
 			{
+				std::cout << "Collision detected!" << std::endl;
+				
 				m_owner->OnCollision(other);
 			}
 		}

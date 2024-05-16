@@ -87,4 +87,17 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 		reloadBuffer = GetTime() + 1;
 	}
+
+	//	UPDATE COLLIDER
+
+	dynamic_cast<CircleCollider*>(m_collider)->m_center = m_localPos;
+}
+
+void TankPlayer::OnDraw()
+{
+	SpriteObject::OnDraw();
+
+	CircleCollider* collider = dynamic_cast<CircleCollider*>(m_collider);
+
+	DrawCircleLines(collider->m_center.x, collider->m_center.y, collider->m_radius, BLUE);
 }

@@ -1,6 +1,9 @@
 #include "GameObject.h"
 
 #include <algorithm>
+#include "CircleCollider.h"
+
+#include <iostream>
 
 static GameObject* m_root;
 
@@ -238,42 +241,20 @@ Math::Matrix3 GameObject::GetWorldMatrix() const
 	}
 }
 
-bool GameObject::CheckCollision()
+void GameObject::GenerateCircleCollider(float r)
 {
-		//	TODO:	Loop through and call Overlap() on all colliders
-	
-	return false;
+	if (m_collider != nullptr)
+	{
+		delete m_collider;
+	}
 
-
-
-	//std::vector<GameObject*> copyChildren;
-
-	////copyChildren.resize(m_children.size());
-
-	//for (int i = 0; i < m_children.size(); i++)
-	//{
-	//	copyChildren.push_back(m_children[i]);
-	//}
-	//OnUpdate(deltaTime);
-
-	////for (int i = 0; i < m_children.size(); i++)
-	////{
-	////	m_children[i]->Update(deltaTime);
-	////}
-
-	//for (int i = 0; i < copyChildren.size(); i++)
-	//{
-	//	copyChildren[i]->Update(deltaTime);
-	//}
-}
-
-void GameObject::SetCollider(Collider* collider)
-{
-	m_collider = collider;
+	m_collider = new CircleCollider(m_localPos, r, this);
 }
 
 void GameObject::Destroy()
 {
+	std::cout << "destroying" << std::endl;
+	
 	for (int i = 0; i < m_children.size(); i++)
 	{
 		m_children[i]->Destroy();
@@ -284,10 +265,11 @@ void GameObject::Destroy()
 	this->m_parent = nullptr;
 }
 
-void GameObject::GetAllChildColliders(std::vector<Collider*> colVec)
+void GameObject::GetAllChildColliders(std::vector<Collider*>& colVec)
 {
 	if (m_collider != nullptr)
 	{
+		std::cout << "adding collider..." << std::endl;
 		colVec.push_back(m_collider);
 	}
 

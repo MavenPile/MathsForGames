@@ -3,7 +3,8 @@
 #include "TankPlayer.h"
 #include "TankTurret.h"
 #include <iostream>
-#include "CircleCollider.h"
+#include "Collider.h"
+#include "BarrelObject.h"
 
 int main()
 {
@@ -20,23 +21,19 @@ int main()
 
 	GameObject root;
 	GameObject::SetRoot(&root);
-	std::vector<Collider*> colliders;
+	std::vector<Collider*> colliders;	//	to store all colliders in the level
 
 	//	MAP
 
-	SpriteObject barrel;
+	BarrelObject barrel(Math::Vector3(500,500,1), 50);
 	raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
 	barrel.m_sprite = &barrelSprite;
-	barrel.SetParent(&root);
-	barrel.SetLocalPosition(500, 500);
-	//CircleCollider barrelCollider(barrel.m_origin, 50);
-	//barrel.SetCollider(barrelCollider);
-
+	barrel.SetParent(GameObject::GetRoot());
 
 	//	PLAYER
 
 	TankPlayer player;
-	player.SetParent(&root);
+	player.SetParent(GameObject::GetRoot());
 	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 	player.m_sprite = &tankSprite;
 	player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
@@ -58,13 +55,7 @@ int main()
 	bulletSpawn.SetLocalPosition(25,0);
 	player.SetTurret(&bulletSpawn);
 
-	//	COLLIDERS
-
-
-
 	//	Main Game Loop
-
-	std::vector<Collider> a_colliders;
 
 	while(!window.ShouldClose())
 	{
@@ -77,6 +68,7 @@ int main()
 
 		colliders.clear();
 		root.GetAllChildColliders(colliders);
+		std::cout << colliders.size() << std::endl;
 
 		for (Collider* i : colliders)
 		{
@@ -84,6 +76,7 @@ int main()
 			{
 				if (i != j)
 				{
+					std::cout << "detecting..." << std::endl;
 					i->CollisionCheck(j);
 				}
 			}

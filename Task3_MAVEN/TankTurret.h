@@ -15,6 +15,8 @@ public:
 
 	void Fire()
 	{
+		//	Generate bullet sprite and position
+		
 		BulletObject* bullet = new BulletObject();
 
 		bullet->m_sprite = m_bulletSprite;
@@ -24,6 +26,10 @@ public:
 		bullet->SetLocalPosition(GetWorldPosition());
 		bullet->SetLocalRotation(GetWorldRotation());
 		bullet->SetLocalScale(GetWorldScale());
+
+		//	Generate bullet collider
+
+
 	}
 
 	void SetBulletSprite(raylib::Texture2D* bulletSprite)

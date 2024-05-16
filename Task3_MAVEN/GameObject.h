@@ -39,7 +39,7 @@ public:
 
 	//	METHODS
 
-	GameObject* GetRoot();
+	static GameObject* GetRoot();
 
 	static void SetRoot(GameObject* root);
 
@@ -105,9 +105,7 @@ public:
 
 	//	COLLISION
 
-	bool CheckCollision();
-
-	void SetCollider(Collider* collider);
+	void GenerateCircleCollider(float r);
 
 	virtual void Destroy();
 		//	remove itself from the children or as parent of other objects
@@ -115,5 +113,5 @@ public:
 	virtual void OnCollision(Collider* other) {}
 		//	use dynamic cast to know what shapes the collision is occuring with
 
-	void GetAllChildColliders(std::vector<Collider*> colVec);
+	void GetAllChildColliders(std::vector<Collider*>& colVec);
 };

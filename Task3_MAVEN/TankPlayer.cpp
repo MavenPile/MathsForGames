@@ -2,6 +2,8 @@
 #include "TankTurret.h"
 #include "CircleCollider.h"
 
+#include <iostream>
+
 TankPlayer::TankPlayer()
 {
 	m_collider = new CircleCollider(m_localPos, 50, this);

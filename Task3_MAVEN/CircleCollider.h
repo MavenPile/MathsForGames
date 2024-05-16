@@ -7,6 +7,8 @@
 #include "PlaneCollider.h"
 #include "GameObject.h"
 
+#include <iostream>
+
 struct CircleCollider : public Collider
 {
 	//	MEMBER VARIABLES
@@ -16,8 +18,6 @@ struct CircleCollider : public Collider
 	float m_radius;
 
 	//	CONSTRUCTORS
-
-	CircleCollider() {}
 
 	CircleCollider(const Math::Vector3& p, float r, GameObject* owner) : m_center(p), m_radius(r)
 	{
@@ -91,6 +91,23 @@ struct CircleCollider : public Collider
 		return m_center + toPoint;
 	}
 
+	//	OPERATORS
+
+	bool operator == (const CircleCollider* other) const
+	{
+		if (m_center != other->m_center || m_radius != other->m_radius || m_owner != other->m_owner)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	bool operator != (const CircleCollider* other) const
+	{
+		return !(*this == other);
+	}
+
 	//	COLLISION
 
 	void CollisionCheck(Collider* other) override
@@ -100,6 +117,8 @@ struct CircleCollider : public Collider
 
 		if (otherC != nullptr)
 		{
+			std::cout << "Collision detected!" << std::endl;
+			
 			if (Overlaps(otherC))
 			{
 				m_owner->OnCollision(other);
@@ -107,15 +126,15 @@ struct CircleCollider : public Collider
 		}
 
 
-		AABBCollider* aabb = dynamic_cast<AABBCollider*>(other);
+		//AABBCollider* aabb = dynamic_cast<AABBCollider*>(other);
 
-		if (aabb != nullptr)
-		{
-			if (Overlaps(aabb))
-			{
-				m_owner->OnCollision(other);
-			}
-		}
+		//if (aabb != nullptr)
+		//{
+		//	if (Overlaps(aabb))
+		//	{
+		//		m_owner->OnCollision(other);
+		//	}
+		//}
 
 		//PlaneCollider* plane = dynamic_cast<PlaneCollider*>(other);
 

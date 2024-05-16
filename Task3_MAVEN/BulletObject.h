@@ -2,6 +2,8 @@
 #include "SpriteObject.h"
 #include "CircleCollider.h"
 
+#include <iostream>
+
 class BulletObject : public SpriteObject
 {
 public:
@@ -11,6 +13,10 @@ public:
 	float lifetime = 2.f;
 
 	const float m_speed = 500.f;
+
+	//	CONSTRUCTORS
+	
+	BulletObject() { m_collider = new CircleCollider(m_localPos, 15, this); }
 
 	//	METHODS
 

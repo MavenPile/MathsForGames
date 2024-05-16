@@ -25,5 +25,7 @@ struct Collider
 	//	METHODS
 
 	virtual void CollisionCheck(Collider* other) {}
+
+	//	OPERATORS
 };
 

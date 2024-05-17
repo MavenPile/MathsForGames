@@ -52,7 +52,7 @@ int main()
 	raylib::Texture2D bulletSprite("res/Sprites/bulletBlue1_outline.png");
 	bulletSpawn.SetBulletSprite(&bulletSprite);
 	bulletSpawn.SetParent(&turret);
-	bulletSpawn.SetLocalPosition(25,0);
+	bulletSpawn.SetLocalPosition(35,0);
 	player.SetTurret(&bulletSpawn);
 
 	//	Main Game Loop

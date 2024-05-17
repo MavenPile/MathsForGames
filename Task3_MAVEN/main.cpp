@@ -5,110 +5,116 @@
 #include <iostream>
 #include "Collider.h"
 #include "BarrelObject.h"
+#include "Game.h"
 
 int main()
 {
-	//	Initialisation
+	Game* myGame = new Game(1600,900);
 
-	int screenWidth = 1600;
-	int screenHeight = 900;
-	raylib::Color textColour = raylib::Color::LightGray();
-	raylib::Window window(screenWidth, screenHeight, "Tank Game!");
+	myGame->Run();
 
-	SetTargetFPS(60);
+	////	Initialisation
 
-	//	ROOT
+	//int screenWidth = 1600;
+	//int screenHeight = 900;
+	//raylib::Color textColour = raylib::Color::LightGray();
+	//raylib::Window window(screenWidth, screenHeight, "Tank Game!");
 
-	GameObject root;
-	GameObject::SetRoot(&root);
-	std::vector<Collider*> colliders;	//	to store all colliders in the level
+	//SetTargetFPS(60);
 
-	//	MAP
+	////	ROOT
 
-	BarrelObject barrel(Math::Vector3(500,500,1));
-	raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
-	barrel.m_sprite = &barrelSprite;
-	barrel.SetParent(GameObject::GetRoot());
+	//GameObject root;
+	//GameObject::SetRoot(&root);
+	//std::vector<Collider*> colliders;	//	to store all colliders in the level
 
-	//	PLAYER
+	////	MAP
 
-	TankPlayer player;
-	player.SetParent(GameObject::GetRoot());
-	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
-	player.m_sprite = &tankSprite;
-	player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
+	//BarrelObject barrel;
+	//barrel.Construct(Math::Vector3(500, 500, 1));
+	//raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
+	//barrel.m_sprite = &barrelSprite;
+	//barrel.SetParent(GameObject::GetRoot());
 
-	GameObject turretBase;
-	turretBase.SetParent(&player);
-	player.SetTurretPivot(&turretBase);
+	////	PLAYER
 
-	SpriteObject turret;
-	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
-	turret.m_sprite = &turretSprite;
-	turret.SetParent(&turretBase);
-	turret.SetLocalPosition(25, 0);
+	//TankPlayer player;
+	//player.SetParent(GameObject::GetRoot());
+	//raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
+	//player.m_sprite = &tankSprite;
+	//player.SetLocalPosition(screenWidth / 2, screenHeight / 2);
 
-	TankTurret bulletSpawn;
-	raylib::Texture2D bulletSprite("res/Sprites/bulletBlue1_outline.png");
-	bulletSpawn.SetBulletSprite(&bulletSprite);
-	bulletSpawn.SetParent(&turret);
-	bulletSpawn.SetLocalPosition(35,0);
-	player.SetTurret(&bulletSpawn);
+	//GameObject turretBase;
+	//turretBase.SetParent(&player);
+	//player.SetTurretPivot(&turretBase);
 
-	//	Main Game Loop
+	//SpriteObject turret;
+	//raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	//turret.m_sprite = &turretSprite;
+	//turret.SetParent(&turretBase);
+	//turret.SetLocalPosition(25, 0);
 
-	while(!window.ShouldClose())
-	{
-		//	Update
+	//TankTurret bulletSpawn;
+	//raylib::Texture2D bulletSprite("res/Sprites/bulletBlue1_outline.png");
+	//bulletSpawn.SetBulletSprite(&bulletSprite);
+	//bulletSpawn.SetParent(&turret);
+	//bulletSpawn.SetLocalPosition(35,0);
+	//player.SetTurret(&bulletSpawn);
 
-		float deltaTime = window.GetFrameTime();
-		root.Update(deltaTime);
+	////	Main Game Loop
 
-		//	COLLISION
+	//while(!window.ShouldClose())
+	//{
+	//	//	Update
 
-		colliders.clear();
-		root.GetAllChildColliders(colliders);
-		std::cout << colliders.size() << std::endl;
+	//	float deltaTime = window.GetFrameTime();
+	//	root.Update(deltaTime);
 
-		for (int i = 0; i < colliders.size(); i++)
-		{
-			for (int j = 0; j < colliders.size(); j++)
-			{
-				if (colliders[i]->m_owner != colliders[j]->m_owner)
-				{
-					colliders[i]->CollisionCheck(colliders[j]);
-				}
-			}
-		}
+	//	//	COLLISION
 
-		//for (Collider* i : colliders)
-		//{
-		//	for (Collider* j : colliders)
-		//	{
-		//		if (i != j)
-		//		{
-		//			std::cout << "detecting..." << std::endl;
-		//			i->CollisionCheck(j);
-		//		}
-		//	}
-		//}
+	//	colliders.clear();
+	//	root.GetAllChildColliders(colliders);
+	//	std::cout << colliders.size() << std::endl;
 
-		//	Draw
+	//	for (int i = 0; i < colliders.size(); i++)
+	//	{
+	//		for (int j = 0; j < colliders.size(); j++)
+	//		{
+	//			if (colliders[i]->m_owner != colliders[j]->m_owner)
+	//			{
+	//				colliders[i]->CollisionCheck(colliders[j]);
+	//			}
+	//		}
+	//	}
 
-		BeginDrawing();
-		{
-			DrawText("Press W and S to move forward and backward.", 25, 25, 20, textColour);
-			DrawText("Press A and D to turn left and right.", 25, 50, 20, textColour);
-			DrawText("Press Q and E to rotate the turret.", 25, 75, 20, textColour);
-			DrawText("Press C to fire a bullet.", 25, 100, 20, textColour);
+	//	//for (Collider* i : colliders)
+	//	//{
+	//	//	for (Collider* j : colliders)
+	//	//	{
+	//	//		if (i != j)
+	//	//		{
+	//	//			std::cout << "detecting..." << std::endl;
+	//	//			i->CollisionCheck(j);
+	//	//		}
+	//	//	}
+	//	//}
 
-			window.ClearBackground(RAYWHITE);
-			window.DrawFPS();
+	//	//	Draw
 
-			root.Draw();
-		}
-		EndDrawing();
-	}
+	//	BeginDrawing();
+	//	{
+	//		DrawText("Press W and S to move forward and backward.", 25, 25, 20, textColour);
+	//		DrawText("Press A and D to turn left and right.", 25, 50, 20, textColour);
+	//		DrawText("Press Q and E to rotate the turret.", 25, 75, 20, textColour);
+	//		DrawText("Press C to fire a bullet.", 25, 100, 20, textColour);
+
+	//		window.ClearBackground(RAYWHITE);
+	//		window.DrawFPS();
+
+	//		root.Draw();
+	//	}
+	//	EndDrawing();
+	//}
 
 	return 0;
 }

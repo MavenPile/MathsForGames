@@ -5,8 +5,10 @@
 
 struct BarrelObject : public SpriteObject
 {
-	BarrelObject(Math::Vector3 v) {
-		m_localPos = v;
+	BarrelObject() {}
+
+	void Construct(int x, int y) {
+		m_localPos = Math::Vector3(x, y, 1);
 		m_collider = new CircleCollider(m_localPos, 25, this);
 	}
 

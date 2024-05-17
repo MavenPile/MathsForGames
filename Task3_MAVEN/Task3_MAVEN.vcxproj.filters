@@ -19,6 +19,9 @@
     <Filter Include="ColliderHeaders">
       <UniqueIdentifier>{e19c3cf8-4fc7-461d-b2a8-6eaa8bc42ba5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{fc328a7a-3627-4dfe-95bd-f30952e6fc73}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Colour.h">
@@ -35,21 +38,6 @@
     </ClInclude>
     <ClInclude Include="Vector4.h">
       <Filter>MathHeaders</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TankPlayer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TankTurret.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BulletObject.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AABBCollider.h">
       <Filter>ColliderHeaders</Filter>
@@ -69,7 +57,25 @@
     <ClInclude Include="Utils.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
+    <ClInclude Include="TankTurret.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="TankPlayer.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
     <ClInclude Include="BarrelObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,6 +93,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BarrelObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

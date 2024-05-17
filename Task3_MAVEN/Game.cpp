@@ -3,10 +3,50 @@
 #include "Collider.h"
 #include "TankPlayer.h"
 #include "SpriteObject.h"
+#include "BarrelObject.h"
 
-Game::Game() {
-	m_window = raylib::Window(1600, 900, "Tank Game!");
-	GameObject::SetRoot(m_root);
+Game::Game(int winWidth, int winHeight)
+{
+	//	WINDOW
+	
+	m_deltaTime = 0.f;
+	m_screenWidth = winWidth;
+	m_screenHeight = winHeight;
+	m_window = raylib::Window(m_screenWidth, m_screenHeight, "Tank Game!");
+
+	//	SPRITES
+
+	//m_tankSprite = raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+	//m_turretSprite = raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
+	//m_barrelSprite = raylib::Texture2D("res/Sprites/barrelBlack_top.png");
+
+	//	WORLD
+
+	GameObject::SetRoot(m_root);	//	world root and ancestor of all game objects
+	
+	//BarrelObject m_barrel;
+	//m_barrel.Construct(500, 500);
+	//m_barrel.SetParent(m_root);
+	//raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
+	//m_barrel.m_sprite = &barrelSprite;
+
+		//	try to create a vector to contain barrels, and work with that
+		//	can we procedurally generate a world of tiles and barrels?
+
+	//	PLAYER
+
+	m_player->SetParent(m_root);
+	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
+	m_player->m_sprite = &tankSprite;
+	m_player->SetLocalPosition(m_screenWidth / 2, m_screenHeight / 2);
+
+	m_pivot->SetParent(m_player);
+	m_player->SetTurretPivot(m_pivot);
+
+	m_turret->SetParent(m_pivot);
+	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	m_turret->m_sprite = &turretSprite;
+	m_turret->SetLocalPosition(25, 0);
 
 }
 

@@ -10,11 +10,15 @@ public:
 
 	//	VARIABLES
 
+	float m_reloadBuffer = 0.f;
+
+	//	TURRET
+
 	GameObject* m_turretPivot = nullptr;
 
 	TankTurret* m_turret = nullptr;
 
-	float reloadBuffer = 0.f;
+	raylib::Texture2D* m_bulletSprite;
 
 	//	CONSTRUCTORS
 
@@ -25,8 +29,6 @@ public:
 	void SetTurretPivot(GameObject* turretPivot);
 
 	void SetTurret(TankTurret* turret);
-
-protected:
 
 	void OnUpdate(float deltaTime) override;
 

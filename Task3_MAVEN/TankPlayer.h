@@ -18,7 +18,7 @@ public:
 
 	TankTurret* m_turret = nullptr;
 
-	raylib::Texture2D* m_bulletSprite;
+	raylib::Texture2D* m_bulletSprite = nullptr;
 
 	//	CONSTRUCTORS
 

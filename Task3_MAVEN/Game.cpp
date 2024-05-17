@@ -35,7 +35,7 @@ Game::Game(int winWidth, int winHeight)
 
 	//	PLAYER
 
-	m_player->SetParent(m_root);
+	m_player->SetParent(GameObject::GetRoot());
 	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 	m_player->m_sprite = &tankSprite;
 	m_player->SetLocalPosition(m_screenWidth / 2, m_screenHeight / 2);

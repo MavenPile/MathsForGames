@@ -26,11 +26,11 @@ public:
 
 	//	SPRITES
 
-	//raylib::Texture2D* m_tankSprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+	//raylib::Texture2D* m_tankSprite;
 
-	//raylib::Texture2D* m_turretSprite = new raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
+	//raylib::Texture2D* m_turretSprite;
 
-	//raylib::Texture2D* m_barrelSprite = new raylib::Texture2D("res/Sprites/barrelBlack_top.png");
+	//raylib::Texture2D* m_barrelSprite;
 
 	//	WORLD
 

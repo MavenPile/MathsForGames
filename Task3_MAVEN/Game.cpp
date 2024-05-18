@@ -4,6 +4,7 @@
 #include "TankPlayer.h"
 #include "SpriteObject.h"
 #include "BarrelObject.h"
+#include "raylib-cpp.hpp"
 
 Game::Game(int winWidth, int winHeight)
 {
@@ -16,36 +17,49 @@ Game::Game(int winWidth, int winHeight)
 
 	//	SPRITES
 
-	//m_tankSprite = raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
-	//m_turretSprite = raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
-	//m_barrelSprite = raylib::Texture2D("res/Sprites/barrelBlack_top.png");
+	//m_tankSprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+	//m_turretSprite = new raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
+	//m_barrelSprite = new raylib::Texture2D("res/Sprites/barrelBlack_top.png");
 
 	//	WORLD
 
-	GameObject::SetRoot(m_root);	//	world root and ancestor of all game objects
-	
-	//BarrelObject m_barrel;
-	//m_barrel.Construct(500, 500);
-	//m_barrel.SetParent(m_root);
-	//raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
-	//m_barrel.m_sprite = &barrelSprite;
+	std::cout << "morebefore" << std::endl;
 
-		//	try to create a vector to contain barrels, and work with that
-		//	can we procedurally generate a world of tiles and barrels?
+	m_root = new GameObject;
+
+	std::cout << "lessbefore" << std::endl;
+
+	
+	
+	GameObject::SetRoot(m_root);	//	world root and ancestor of all game objects
+
+	std::cout << "afterRoot" << std::endl;
 
 	//	PLAYER
 
+	m_player = new TankPlayer;
+
+	std::cout << "afterPlayer" << std::endl;
+
 	m_player->SetParent(GameObject::GetRoot());
-	raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
-	m_player->m_sprite = &tankSprite;
+	
+	std::cout << "before" << std::endl;
+
+	raylib::Texture2D m_tankSprite("res/Sprites/tankBody_blue_outline.png");
+
+	std::cout << "after" << std::endl;
+
+	m_player->m_sprite = &m_tankSprite;
 	m_player->SetLocalPosition(m_screenWidth / 2, m_screenHeight / 2);
 
+	m_pivot = new GameObject;
 	m_pivot->SetParent(m_player);
 	m_player->SetTurretPivot(m_pivot);
 
+	m_turret = new SpriteObject;
 	m_turret->SetParent(m_pivot);
-	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
-	m_turret->m_sprite = &turretSprite;
+	raylib::Texture2D m_turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	m_turret->m_sprite = &m_turretSprite;
 	m_turret->SetLocalPosition(25, 0);
 
 }

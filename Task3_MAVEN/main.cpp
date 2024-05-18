@@ -13,7 +13,7 @@ int main()
 
 	myGame->Run();
 
-	////	Initialisation
+	//	Initialisation
 
 	//int screenWidth = 1600;
 	//int screenHeight = 900;
@@ -31,7 +31,7 @@ int main()
 	////	MAP
 
 	//BarrelObject barrel;
-	//barrel.Construct(Math::Vector3(500, 500, 1));
+	//barrel.Construct(500, 500);
 	//raylib::Texture2D barrelSprite("res/Sprites/barrelBlack_top.png");
 	//barrel.m_sprite = &barrelSprite;
 	//barrel.SetParent(GameObject::GetRoot());

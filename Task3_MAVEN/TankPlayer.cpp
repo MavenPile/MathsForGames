@@ -7,7 +7,7 @@
 TankPlayer::TankPlayer()
 {
 	m_collider = new CircleCollider(m_localPos, 50, this);
-	m_bulletSprite = new raylib::Texture2D("res/Sprites/bulletBlue1_outline.png");
+	//m_bulletSprite = raylib::Texture2D("res/Sprites/bulletBlue1_outline.png");
 }
 
 void TankPlayer::SetTurretPivot(GameObject* turretPivot)
@@ -86,7 +86,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 	{
 		BulletObject* m_bullet = new BulletObject();
 
-		m_bullet->m_sprite = m_bulletSprite;
+		m_bullet->m_sprite = &m_bulletSprite;
 
 		m_bullet->SetParent(GetRoot());
 

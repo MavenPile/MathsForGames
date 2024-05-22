@@ -6,8 +6,7 @@ BulletObject::BulletObject() {
 	m_sprite = new raylib::Texture2D("res/Sprites/bulletBlue1_outline.png");
 }
 
-void BulletObject::OnUpdate(float deltaTime) 
-{
+void BulletObject::OnUpdate(float deltaTime) {
 	//	DELETE
 
 	lifetime -= deltaTime;
@@ -29,8 +28,7 @@ void BulletObject::OnUpdate(float deltaTime)
 	dynamic_cast<CircleCollider*>(m_collider)->m_center = m_localPos;
 }
 
-void BulletObject::OnDraw() 
-{
+void BulletObject::OnDraw() {
 	SpriteObject::OnDraw();
 
 	CircleCollider* collider = dynamic_cast<CircleCollider*>(m_collider);

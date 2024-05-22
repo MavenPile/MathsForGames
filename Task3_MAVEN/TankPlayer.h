@@ -18,7 +18,7 @@ public:
 
 	SpriteObject* m_turret = nullptr;
 
-	raylib::Texture2D m_turretSprite;
+	raylib::Texture2D* m_turretSprite;
 
 	//	CONSTRUCTORS
 

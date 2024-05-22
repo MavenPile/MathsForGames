@@ -24,8 +24,7 @@ public:
 
 	void OnDraw() override;
 
-	void OnCollision(Collider* other) override
-	{
+	void OnCollision(Collider* other) override {
 		Destroy();
 	}
 };

@@ -1,14 +1,13 @@
 #include "TankPlayer.h"
 #include "TankTurret.h"
 #include "CircleCollider.h"
-#include "raylib-cpp.hpp"
-
-#include <iostream>
 
 TankPlayer::TankPlayer() {
 	//	TANK
 	m_collider = new CircleCollider(m_localPos, 50, this);
 	m_sprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+
+	//raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 
 	//	PIVOT
 	m_pivot = new GameObject;

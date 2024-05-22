@@ -43,7 +43,10 @@ Game::Game(int winWidth, int winHeight)
 	m_player->SetLocalPosition(m_screenWidth / 2, m_screenHeight / 2);
 }
 
-Game::~Game() {}
+Game::~Game() {
+	delete m_root;
+	delete m_player;
+}
 
 void Game::Run()
 {

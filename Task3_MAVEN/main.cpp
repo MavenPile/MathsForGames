@@ -9,9 +9,9 @@
 
 int main()
 {
-	Game* myGame = new Game(1600,900);
+	//Game* myGame = new Game(1600,900);
 
-	myGame->Run();
+	//myGame->Run();
 
 	//	Initialisation
 
@@ -46,7 +46,7 @@ int main()
 
 	//GameObject turretBase;
 	//turretBase.SetParent(&player);
-	//player.SetTurretPivot(&turretBase);
+	//player.m_turret(&turretBase);
 
 	//SpriteObject turret;
 	//raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");

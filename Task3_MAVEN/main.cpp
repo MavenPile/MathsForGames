@@ -81,18 +81,6 @@ int main()
 			}
 		}
 
-		//for (Collider* i : colliders)
-		//{
-		//	for (Collider* j : colliders)
-		//	{
-		//		if (i != j)
-		//		{
-		//			std::cout << "detecting..." << std::endl;
-		//			i->CollisionCheck(j);
-		//		}
-		//	}
-		//}
-
 		//	Draw
 
 		BeginDrawing();

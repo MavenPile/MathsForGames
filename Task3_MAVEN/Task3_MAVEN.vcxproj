@@ -151,6 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BarrelObject.cpp" />
+    <ClCompile Include="BulletObject.cpp" />
+    <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />

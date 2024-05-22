@@ -41,14 +41,10 @@ public:
 	//	PLAYER
 
 	TankPlayer* m_player;
-
-	GameObject* m_pivot;
-
-	SpriteObject* m_turret;
 	
 	//	CONSTRUCTORS
 
-	Game() {}
+	Game();
 
 	Game(int winWidth, int winHeight);
 

@@ -1,23 +1,32 @@
 #include "TankPlayer.h"
 #include "TankTurret.h"
 #include "CircleCollider.h"
+#include "raylib-cpp.hpp"
 
 #include <iostream>
 
-TankPlayer::TankPlayer()
-{
+TankPlayer::TankPlayer() {
+	//	TANK
 	m_collider = new CircleCollider(m_localPos, 50, this);
-	//m_bulletSprite = raylib::Texture2D("res/Sprites/bulletBlue1_outline.png");
+	m_sprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+
+	//	PIVOT
+	m_pivot = new GameObject;
+	m_pivot->SetParent(this);
+
+	//	TURRET
+	m_turret = new SpriteObject;
+	m_turret->m_sprite = new raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
+	m_turret->SetParent(m_pivot);
+	m_turret->SetLocalPosition(25, 0);
 }
 
-void TankPlayer::SetTurretPivot(GameObject* turretPivot)
-{
-	m_turretPivot = turretPivot;
-}
-
-void TankPlayer::SetTurret(TankTurret* turret)
-{
-	m_turret = turret;
+TankPlayer::~TankPlayer() {
+	delete m_collider;
+	delete m_sprite;
+	delete m_pivot;
+	delete m_turret;
+	delete m_turret->m_sprite;
 }
 
 void TankPlayer::OnUpdate(float deltaTime)
@@ -28,14 +37,10 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	float yMove = 0.f;
 
-	if (IsKeyDown(KeyboardKey::KEY_W))
-	{
-		yMove += MOVESPEED;
-	}
-	if (IsKeyDown(KeyboardKey::KEY_S))
-	{
-		yMove -= MOVESPEED;
-	}
+	if (IsKeyDown(KeyboardKey::KEY_W)) {
+		yMove += MOVESPEED; }
+	if (IsKeyDown(KeyboardKey::KEY_S)) {
+		yMove -= MOVESPEED; }
 
 	Math::Vector3 finalMove = GetForward() * (yMove * deltaTime);
 		//	'finalMove' is the total displacement of position
@@ -78,7 +83,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 
 	float finalTRot = tRot * deltaTime;
 
-	m_turretPivot->Rotate(finalTRot);
+	m_pivot->Rotate(finalTRot);
 
 	//	FIRE BULLET
 
@@ -86,7 +91,7 @@ void TankPlayer::OnUpdate(float deltaTime)
 	{
 		BulletObject* m_bullet = new BulletObject();
 
-		m_bullet->m_sprite = &m_bulletSprite;
+		//m_bullet->m_sprite = m_bulletSprite;
 
 		m_bullet->SetParent(GetRoot());
 

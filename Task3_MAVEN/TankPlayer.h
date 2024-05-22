@@ -14,21 +14,19 @@ public:
 
 	//	TURRET
 
-	GameObject* m_turretPivot = nullptr;
+	GameObject* m_pivot = nullptr;
 
-	TankTurret* m_turret = nullptr;
+	SpriteObject* m_turret = nullptr;
 
-	raylib::Texture2D m_bulletSprite = raylib::Texture2D("res/Sprites/bulletBlue1_outline.png");
+	raylib::Texture2D m_turretSprite;
 
 	//	CONSTRUCTORS
 
 	TankPlayer();
 
+	~TankPlayer();
+
 	//	METHODS
-
-	void SetTurretPivot(GameObject* turretPivot);
-
-	void SetTurret(TankTurret* turret);
 
 	void OnUpdate(float deltaTime) override;
 

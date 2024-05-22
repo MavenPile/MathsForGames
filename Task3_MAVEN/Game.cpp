@@ -6,6 +6,15 @@
 #include "BarrelObject.h"
 #include "raylib-cpp.hpp"
 
+Game::Game()
+{
+	m_deltaTime = 0.f;
+	m_screenHeight = 0;
+	m_screenWidth = 0;
+	m_root = nullptr;
+	m_player = nullptr;
+}
+
 Game::Game(int winWidth, int winHeight)
 {
 	//	WINDOW
@@ -23,45 +32,15 @@ Game::Game(int winWidth, int winHeight)
 
 	//	WORLD
 
-	std::cout << "morebefore" << std::endl;
-
 	m_root = new GameObject;
-
-	std::cout << "lessbefore" << std::endl;
-
-	
-	
 	GameObject::SetRoot(m_root);	//	world root and ancestor of all game objects
 
-	std::cout << "afterRoot" << std::endl;
 
 	//	PLAYER
 
 	m_player = new TankPlayer;
-
-	std::cout << "afterPlayer" << std::endl;
-
 	m_player->SetParent(GameObject::GetRoot());
-	
-	std::cout << "before" << std::endl;
-
-	raylib::Texture2D m_tankSprite("res/Sprites/tankBody_blue_outline.png");
-
-	std::cout << "after" << std::endl;
-
-	m_player->m_sprite = &m_tankSprite;
 	m_player->SetLocalPosition(m_screenWidth / 2, m_screenHeight / 2);
-
-	m_pivot = new GameObject;
-	m_pivot->SetParent(m_player);
-	m_player->SetTurretPivot(m_pivot);
-
-	m_turret = new SpriteObject;
-	m_turret->SetParent(m_pivot);
-	raylib::Texture2D m_turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
-	m_turret->m_sprite = &m_turretSprite;
-	m_turret->SetLocalPosition(25, 0);
-
 }
 
 Game::~Game() {}

@@ -6,8 +6,7 @@
 #include "BarrelObject.h"
 #include "raylib-cpp.hpp"
 
-Game::Game()
-{
+Game::Game() {
 	m_deltaTime = 0.f;
 	m_screenHeight = 0;
 	m_screenWidth = 0;
@@ -19,22 +18,15 @@ Game::Game(int winWidth, int winHeight)
 {
 	//	WINDOW
 	
-	m_deltaTime = 0.f;
 	m_screenWidth = winWidth;
 	m_screenHeight = winHeight;
 	m_window = raylib::Window(m_screenWidth, m_screenHeight, "Tank Game!");
-
-	//	SPRITES
-
-	//m_tankSprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
-	//m_turretSprite = new raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
-	//m_barrelSprite = new raylib::Texture2D("res/Sprites/barrelBlack_top.png");
+	m_deltaTime = 0.f;
 
 	//	WORLD
 
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);	//	world root and ancestor of all game objects
-
 
 	//	PLAYER
 
@@ -81,10 +73,10 @@ void Game::Run()
 
 			m_window.ClearBackground(RAYWHITE);
 			m_window.DrawFPS();
-			DrawText("Press W and S to move forward and backward.", 25, 25, 20, LIGHTGRAY);
-			DrawText("Press A and D to turn left and right.", 25, 50, 20, LIGHTGRAY);
-			DrawText("Press Q and E to rotate the turret.", 25, 75, 20, LIGHTGRAY);
-			DrawText("Press C to fire a bullet.", 25, 100, 20, LIGHTGRAY);
+			DrawText("Press W and S to move forward and backward.", 25, 30, 20, LIGHTGRAY);
+			DrawText("Press A and D to turn left and right.", 25, 55, 20, LIGHTGRAY);
+			DrawText("Press Q and E to rotate the turret.", 25, 80, 20, LIGHTGRAY);
+			DrawText("Press C to fire a bullet.", 25, 105, 20, LIGHTGRAY);
 
 			//	LEVEL
 

@@ -5,7 +5,7 @@
 TankPlayer::TankPlayer() {
 	//	TANK
 	m_collider = new CircleCollider(m_localPos, 50, this);
-	m_sprite = new raylib::Texture2D("res/Sprites/tankBody_blue_outline.png");
+	m_sprite = new raylib::Texture2D("C:/Users/s214290/OneDrive - The Academy of Interactive Entertainment Ltd/GitHub/Repos/MathsForGames/Task3_MAVEN/res/Sprites/tankBody_blue_outline.png");
 
 	//raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 
@@ -15,7 +15,8 @@ TankPlayer::TankPlayer() {
 
 	//	TURRET
 	m_turret = new SpriteObject;
-	m_turret->m_sprite = new raylib::Texture2D("res/Sprites/tankBlue_barrel1_outline.png");
+	raylib::Texture2D turretSprite("res/Sprites/tankBlue_barrel1_outline.png");
+	m_turret->m_sprite = &turretSprite;
 	m_turret->SetParent(m_pivot);
 	m_turret->SetLocalPosition(25, 0);
 }
@@ -25,7 +26,6 @@ TankPlayer::~TankPlayer() {
 	delete m_sprite;
 	delete m_pivot;
 	delete m_turret;
-	delete m_turret->m_sprite;
 }
 
 void TankPlayer::OnUpdate(float deltaTime)

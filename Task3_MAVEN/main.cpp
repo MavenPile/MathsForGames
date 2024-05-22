@@ -9,9 +9,9 @@
 
 int main()
 {
-	//Game* myGame = new Game(1600,900);
+	Game* myGame = new Game(1600,900);
 
-	//myGame->Run();
+	myGame->Run();
 
 	//	Initialisation
 

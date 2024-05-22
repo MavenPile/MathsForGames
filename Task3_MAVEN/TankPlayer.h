@@ -1,5 +1,6 @@
 #pragma once
 
+#include "raylib-cpp.hpp"
 #include "SpriteObject.h"
 
 class TankTurret;
@@ -7,7 +8,6 @@ class TankTurret;
 class TankPlayer : public SpriteObject
 {
 public:
-
 	//	VARIABLES
 
 	float m_reloadBuffer = 0.f;
@@ -15,10 +15,7 @@ public:
 	//	TURRET
 
 	GameObject* m_pivot = nullptr;
-
 	SpriteObject* m_turret = nullptr;
-
-	raylib::Texture2D* m_turretSprite;
 
 	//	CONSTRUCTORS
 

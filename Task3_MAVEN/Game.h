@@ -8,34 +8,18 @@ struct Collider;
 struct TankPlayer;
 struct SpriteObject;
 
-class Game
-{
+class Game {
 public:
-
-	//	VARIABLES
-
-	float m_deltaTime;
-
-	int m_screenWidth;
-
-	int m_screenHeight;
-
 	//	WINDOW
 
+	int m_screenWidth;
+	int m_screenHeight;
 	raylib::Window m_window;
-
-	//	SPRITES
-
-	//raylib::Texture2D* m_tankSprite;
-
-	//raylib::Texture2D* m_turretSprite;
-
-	//raylib::Texture2D* m_barrelSprite;
+	float m_deltaTime;
 
 	//	WORLD
 
 	GameObject* m_root;
-
 	std::vector<Collider*> m_colliders;
 
 	//	PLAYER

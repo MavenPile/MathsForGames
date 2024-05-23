@@ -2,5 +2,7 @@
 
 int main()
 {
-	Game* m_game = new Game;
+	Game* m_game = new Game(1600,900);
+
+	m_game->Run();
 }

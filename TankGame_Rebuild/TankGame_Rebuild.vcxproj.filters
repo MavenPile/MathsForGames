@@ -13,5 +13,83 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="MathHeaders">
+      <UniqueIdentifier>{361c4fe4-2437-4dbb-a975-d45c63ac8741}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ColliderHeaders">
+      <UniqueIdentifier>{f0a0ee23-b943-408a-907a-401dfd256e5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Colour.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>MathHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>ColliderHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TankGame_Rebuild.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

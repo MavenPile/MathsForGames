@@ -6,7 +6,7 @@ BulletObject::BulletObject()
 	m_lifeTime = 2.f;
 	m_speed = 500.f;
 	m_collider = new CircleCollider(m_localPos, 10, this);
-	m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
+	//m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
 }
 
 BulletObject::BulletObject(Math::Vector3 pos, float rot, Math::Vector3 scl)
@@ -14,7 +14,7 @@ BulletObject::BulletObject(Math::Vector3 pos, float rot, Math::Vector3 scl)
 	m_lifeTime = 2.f;
 	m_speed = 500.f;
 	m_collider = new CircleCollider(m_localPos, 10, this);
-	m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
+	//m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
 	SetLocalPosition(pos);
 	SetLocalRotation(rot);
 	SetLocalScale(scl);

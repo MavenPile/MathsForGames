@@ -133,6 +133,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SpriteObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BulletObject.h" />
@@ -144,8 +145,8 @@
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />

@@ -69,20 +69,16 @@ const GameObject* GameObject::GetChild(size_t childIndex) const
 
 void GameObject::Update(float deltaTime)
 {
-	std::vector<GameObject*> copyChildren;
-
-	//copyChildren.resize(m_children.size());
+	std::vector<GameObject*> copyChildren;	//	vectors don't like being worked on as their size changes
+											//	their size changes when we create bullets
+											//	so we work on a vector copy that contains the children
 
 	for (int i = 0; i < m_children.size(); i++)
 	{
 		copyChildren.push_back(m_children[i]);
 	}
-	OnUpdate(deltaTime);
 
-	//for (int i = 0; i < m_children.size(); i++)
-	//{
-	//	m_children[i]->Update(deltaTime);
-	//}
+	OnUpdate(deltaTime);
 
 	for (int i = 0; i < copyChildren.size(); i++)
 	{
@@ -92,7 +88,6 @@ void GameObject::Update(float deltaTime)
 
 void GameObject::Draw()
 {
-
 	std::vector<GameObject*> copyChildren;
 
 	for (int i = 0; i < m_children.size(); i++)
@@ -100,13 +95,8 @@ void GameObject::Draw()
 		copyChildren.push_back(m_children[i]);
 	}
 
-
 	OnDraw();
 
-	//for (int i = 0; i < m_children.size(); i++)
-	//{
-	//	m_children[i]->Draw();
-	//}
 	for (int i = 0; i < copyChildren.size(); i++)
 	{
 		copyChildren[i]->Draw();

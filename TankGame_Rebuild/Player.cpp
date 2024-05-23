@@ -2,13 +2,15 @@
 #include "CircleCollider.h"
 #include "raylib-cpp.hpp"
 #include "BulletObject.h"
+#include <iostream>
 
 Player::Player()
 {
 	//	TANK
 
 	m_collider = new CircleCollider(m_localPos, 50, this);
-	m_sprite = new raylib::Texture2D("Sprites/tankBody_blue_outline.png");
+	//m_sprite = new raylib::Texture2D("Sprites/tankBody_blue_outline.png");
+
 
 	//	TURRET
 
@@ -20,8 +22,10 @@ Player::Player()
 	m_turret = new SpriteObject;
 	m_turret->SetParent(m_pivot);
 	m_turret->SetLocalPosition(25, 0);
-	raylib::Texture2D turretSprite("Sprites/tankBlue_barrel1_outline.png");
-	m_turret->m_sprite = &turretSprite;
+	//raylib::Texture2D turretSprite("Sprites/tankBlue_barrel1_outline.png");
+	//m_turret->m_sprite = &turretSprite;
+
+	//DrawCircleLines(m_turret->GetWorldPosition().x, m_turret->GetWorldPosition().y, 10, BLUE);
 }
 
 Player::~Player()
@@ -105,5 +109,9 @@ void Player::OnUpdate(float deltaTime)
 
 void Player::OnDraw()
 {
+	SpriteObject::OnDraw();
 
+	CircleCollider* colCopy = dynamic_cast<CircleCollider*>(m_collider);
+
+	DrawCircleLines(colCopy->m_center.x, colCopy->m_center.y, colCopy->m_radius, BLUE);
 }

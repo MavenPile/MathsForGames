@@ -8,6 +8,7 @@ Game::Game()
 
 	m_window = raylib::Window(1600, 900, "Game!");
 	m_deltaTime = 0.f;
+	SetTargetFPS(60);
 
 	//	WORLD
 
@@ -27,6 +28,7 @@ Game::Game(int winWidth, int winHeight)
 
 	m_window = raylib::Window(winWidth, winHeight, "Game!");
 	m_deltaTime = 0.f;
+	SetTargetFPS(60);
 
 	//	WORLD
 

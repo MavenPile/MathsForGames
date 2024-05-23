@@ -5,7 +5,7 @@
 TankPlayer::TankPlayer() {
 	//	TANK
 	m_collider = new CircleCollider(m_localPos, 50, this);
-	m_sprite = new raylib::Texture2D("C:/Users/s214290/OneDrive - The Academy of Interactive Entertainment Ltd/GitHub/Repos/MathsForGames/Task3_MAVEN/res/Sprites/tankBody_blue_outline.png");
+	m_sprite = new raylib::Texture2D("C:/Users/s214290/OneDrive - The Academy of Interactive Entertainment Ltd/GitHub/Repos/MathsForGames/Task3_MAVEN/");
 
 	//raylib::Texture2D tankSprite("res/Sprites/tankBody_blue_outline.png");
 

@@ -11,7 +11,7 @@ class Game
 public:
 	//	WINDOW
 
-	raylib::Window m_window;
+	raylib::Window* m_window;
 	float m_deltaTime;
 
 	//	WORLD
@@ -27,7 +27,7 @@ public:
 
 	Game();
 
-	Game(int winWidth, int winHeight);
+	Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite);
 
 	~Game();
 

@@ -28,6 +28,31 @@ Player::Player()
 	//DrawCircleLines(m_turret->GetWorldPosition().x, m_turret->GetWorldPosition().y, 10, BLUE);
 }
 
+Player::Player(raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite)
+{
+	//	TANK
+
+	m_collider = new CircleCollider(m_localPos, 50, this);
+	m_sprite = tankSprite;
+
+	//	TURRET
+
+	m_reload = 0.f;
+
+	m_pivot = new GameObject;
+	m_pivot->SetParent(this);
+
+	m_turret = new SpriteObject;
+	m_turret->SetParent(m_pivot);
+	m_turret->SetLocalPosition(35, 0);
+	m_turret->m_sprite = turretSprite;
+	m_bulletSprite = bulletSprite;
+
+	m_bulletSpawn = new GameObject;
+	m_bulletSpawn->SetParent(m_pivot);
+	m_bulletSpawn->SetLocalPosition(60, 0);
+}
+
 Player::~Player()
 {
 	delete m_collider;
@@ -76,7 +101,12 @@ void Player::OnUpdate(float deltaTime)
 
 	//	COLLIDER
 
-	dynamic_cast<CircleCollider*>(m_collider)->m_center = m_localPos;
+	CircleCollider* colliderCheck = dynamic_cast<CircleCollider*>(m_collider);
+
+	if (nullptr != colliderCheck)
+	{
+		colliderCheck->m_center = m_localPos;
+	}
 
 	//	TURRET
 
@@ -100,8 +130,10 @@ void Player::OnUpdate(float deltaTime)
 	//	BULLET
 
 	if (IsKeyDown(KeyboardKey::KEY_C) && m_reload <= GetTime())
-	{
-		BulletObject* bullet = new BulletObject(m_turret->GetWorldPosition(), m_turret->GetWorldRotation(), m_turret->GetWorldScale());
+	{		
+		BulletObject* bullet = new BulletObject(m_bulletSprite, m_bulletSpawn->GetWorldPosition(), m_bulletSpawn->GetWorldRotation(), m_bulletSpawn->GetWorldScale());
+
+		//std::cout << "Fired Bullet" << std::endl;
 
 		m_reload = GetTime() + 1;
 	}
@@ -111,7 +143,10 @@ void Player::OnDraw()
 {
 	SpriteObject::OnDraw();
 
-	CircleCollider* colCopy = dynamic_cast<CircleCollider*>(m_collider);
+	CircleCollider* colliderCheck = dynamic_cast<CircleCollider*>(m_collider);
 
-	DrawCircleLines(colCopy->m_center.x, colCopy->m_center.y, colCopy->m_radius, BLUE);
+	if (nullptr != colliderCheck)
+	{
+		DrawCircleLines(colliderCheck->m_center.x, colliderCheck->m_center.y, colliderCheck->m_radius, BLUE);
+	}
 }

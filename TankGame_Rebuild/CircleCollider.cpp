@@ -1,6 +1,7 @@
 #include "CircleCollider.h"
 #include <iostream>
 #include "GameObject.h"
+#include "Player.h"
 
 CircleCollider::CircleCollider(const Math::Vector3& center, float radius, GameObject* owner)
 {
@@ -51,9 +52,7 @@ bool CircleCollider::Overlaps(CircleCollider* other) const
 	auto toPoint = other->m_center - m_center;
 
 	float totalRad = m_radius + other->m_radius;
-	
-	std::cout << (toPoint.MagnitudeSqr() <= (totalRad * totalRad)) << std::endl;
-	
+		
 	return toPoint.MagnitudeSqr() <= (totalRad * totalRad);
 }
 

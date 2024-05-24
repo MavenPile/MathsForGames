@@ -12,7 +12,7 @@ public:
 	//	CONSTRUCTORS
 
 	BulletObject();
-	BulletObject(Math::Vector3 pos, float rot, Math::Vector3 scl);
+	BulletObject(raylib::Texture2D* bulletSprite, Math::Vector3 pos, float rot, Math::Vector3 scl);
 	~BulletObject();
 
 	//	METHODS

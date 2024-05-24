@@ -6,18 +6,18 @@ BulletObject::BulletObject()
 	m_lifeTime = 2.f;
 	m_speed = 500.f;
 	m_collider = new CircleCollider(m_localPos, 10, this);
-	//m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
 }
 
-BulletObject::BulletObject(Math::Vector3 pos, float rot, Math::Vector3 scl)
+BulletObject::BulletObject(raylib::Texture2D* bulletSprite, Math::Vector3 pos, float rot, Math::Vector3 scl)
 {
 	m_lifeTime = 2.f;
 	m_speed = 500.f;
 	m_collider = new CircleCollider(m_localPos, 10, this);
-	//m_sprite = new raylib::Texture2D("Sprites/bulletBlue1_outline.png");
 	SetLocalPosition(pos);
 	SetLocalRotation(rot);
 	SetLocalScale(scl);
+	SetParent(GameObject::GetRoot());
+	m_sprite = bulletSprite;
 }
 
 BulletObject::~BulletObject()
@@ -44,7 +44,12 @@ void BulletObject::OnUpdate(float deltaTime)
 
 	//	COLLIDER
 
-	dynamic_cast<CircleCollider*>(m_collider)->m_center = m_localPos;
+	CircleCollider* colliderCheck = dynamic_cast<CircleCollider*>(m_collider);
+
+	if (nullptr != colliderCheck)
+	{
+		colliderCheck->m_center = m_localPos;
+	}
 }
 
 void BulletObject::OnDraw()

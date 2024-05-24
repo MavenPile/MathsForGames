@@ -42,6 +42,9 @@
     <ClCompile Include="SpriteObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BarrelObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Colour.h">
@@ -74,9 +77,6 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CircleCollider.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
@@ -84,6 +84,12 @@
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
     <ClInclude Include="SpriteObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BarrelObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

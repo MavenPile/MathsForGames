@@ -242,12 +242,12 @@ void GameObject::GenerateCircleCollider(float r)
 }
 
 void GameObject::Destroy()
-{
-	std::cout << "destroying" << std::endl;
-	
+{	
 	for (int i = 0; i < m_children.size(); i++)
 	{
 		m_children[i]->Destroy();
+
+		std::cout << "Destroyed Object" << std::endl;
 	}
 
 	m_parent->m_children.erase(std::remove(m_parent->m_children.begin(), m_parent->m_children.end(), this), m_parent->m_children.end());
@@ -259,7 +259,6 @@ void GameObject::GetAllChildColliders(std::vector<Collider*>& colVec)
 {
 	if (m_collider != nullptr)
 	{
-		std::cout << "adding collider..." << std::endl;
 		colVec.push_back(m_collider);
 	}
 

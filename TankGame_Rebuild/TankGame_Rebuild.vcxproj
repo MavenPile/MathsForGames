@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABBCollider.cpp" />
     <ClCompile Include="BarrelObject.cpp" />
     <ClCompile Include="BulletObject.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
@@ -137,6 +138,7 @@
     <ClCompile Include="SpriteObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABBCollider.h" />
     <ClInclude Include="BarrelObject.h" />
     <ClInclude Include="BulletObject.h" />
     <ClInclude Include="CircleCollider.h" />

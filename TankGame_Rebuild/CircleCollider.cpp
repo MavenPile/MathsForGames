@@ -2,6 +2,7 @@
 #include <iostream>
 #include "GameObject.h"
 #include "Player.h"
+#include "AABBCollider.h"
 
 CircleCollider::CircleCollider(const Math::Vector3& center, float radius, GameObject* owner)
 {
@@ -56,6 +57,13 @@ bool CircleCollider::Overlaps(CircleCollider* other) const
 	return toPoint.MagnitudeSqr() <= (totalRad * totalRad);
 }
 
+bool CircleCollider::Overlaps(AABBCollider* other) const
+{
+	auto diff = other->ClosestPoint(m_center) - m_center;
+
+	return diff.Dot(diff) <= (m_radius * m_radius);
+}
+
 Math::Vector3 CircleCollider::ClosestPoint(const Math::Vector3& p) const
 {
 	Math::Vector3 toPoint = p - m_center;
@@ -85,14 +93,27 @@ bool CircleCollider::operator!=(const CircleCollider* other) const
 
 void CircleCollider::CollisionCheck(Collider* other)
 {
-		CircleCollider* otherC = dynamic_cast<CircleCollider*>(other);
-	//	check if other collider is a CircleCollider()
+	//	CIRCLE
+	CircleCollider* circle = dynamic_cast<CircleCollider*>(other);
 
-	if (otherC != nullptr)
+	if (circle != nullptr)
 	{
-		if (Overlaps(otherC))
+		if (Overlaps(circle))
 		{
-			std::cout << "Collision detected!" << std::endl;
+			std::cout << "Circle > Circle Collision Detected" << std::endl;
+
+			m_owner->OnCollision(other);
+		}
+	}
+
+	//	AABB
+	AABBCollider* aabb = dynamic_cast<AABBCollider*>(other);
+
+	if (nullptr != aabb)
+	{
+		if (Overlaps(aabb))
+		{
+			std::cout << "Circle > AABB Collision Detected" << std::endl;
 
 			m_owner->OnCollision(other);
 		}

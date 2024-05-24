@@ -37,7 +37,7 @@ Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Textur
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	BarrelObject* barrel = new BarrelObject(400, 450, barrelSprite);
+	BarrelObject* barrel = new BarrelObject(1200, 450, barrelSprite);
 
 	//	PLAYER
 

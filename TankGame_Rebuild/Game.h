@@ -18,6 +18,7 @@ public:
 
 	GameObject* m_root;
 	std::vector<Collider*> m_colliders;
+	BarrelObject* m_barrel;
 	
 	//	PLAYER
 
@@ -26,9 +27,7 @@ public:
 	//	CONSTRUCTORS
 
 	Game();
-
 	Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite);
-
 	~Game();
 
 	//	METHODS

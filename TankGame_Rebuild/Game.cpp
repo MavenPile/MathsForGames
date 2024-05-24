@@ -37,7 +37,7 @@ Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Textur
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	BarrelObject* barrel = new BarrelObject(1200, 450, barrelSprite);
+	m_barrel = new BarrelObject(1200, 450, barrelSprite);
 
 	//	PLAYER
 
@@ -50,8 +50,7 @@ Game::~Game()
 {
 	delete m_root;
 	delete m_player;
-
-
+	delete m_barrel;
 }
 
 void Game::Run()

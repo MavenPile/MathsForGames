@@ -18,9 +18,7 @@ public:
 	//	CONSTRUCTORS
 
 	Player();
-
 	Player(raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite);
-
 	~Player();
 
 	//	METHODS

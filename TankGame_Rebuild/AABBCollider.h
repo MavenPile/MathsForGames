@@ -14,9 +14,7 @@ public:
 	//	CONSTRUCTORS
 
 	AABBCollider();
-
 	AABBCollider(const Math::Vector3& min, const Math::Vector3& max);
-
 	~AABBCollider();
 
 	//	METHODS
@@ -28,17 +26,14 @@ public:
 	std::vector<Math::Vector3> Corners() const;
 
 	void Fit(const Math::Vector3* points, unsigned int count);
-
 	void Fit(const std::vector<Math::Vector3>& points);
 
 	bool Overlaps(const Math::Vector3& point) const;
-
 	bool Overlaps(const AABBCollider* other) const;
 
 	Math::Vector3 ClosestPoint(const Math::Vector3& point);
 
 	bool IsEmpty();
-
 	void Empty();
 
 	void SetToTransformedBox(const Math::Matrix3& matrix);

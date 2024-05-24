@@ -6,6 +6,7 @@ class GameObject;
 class Collider;
 class Player;
 class Barricade;
+class Wall;
 
 class Game
 {
@@ -21,6 +22,7 @@ public:
 	std::vector<Collider*> m_colliders;
 	Barricade* m_barrel;
 	Barricade* m_barbedWire;
+	//Wall* m_wall;
 	
 	//	PLAYER
 

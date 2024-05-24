@@ -1,6 +1,7 @@
 #include "Barricade.h"
 #include "CircleCollider.h"	
 #include "AABBCollider.h"
+#include "PlaneCollider.h"
 
 Barricade::Barricade()
 {

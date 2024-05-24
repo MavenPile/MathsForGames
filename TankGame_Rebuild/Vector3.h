@@ -21,11 +21,10 @@ namespace Math
                 union
                 {
                     float z, w;
-
                 };  //  Vector3 can now be called as x,y,z or x,y,w
+            };              //  12-bytes
 
-            };  //  12-bytes
-            float data[3];              //  12-bytes
+            float data[3];  //  12-bytes
                 //  the array data[3] shares memory with the anonymous struct
                 //  data[0] uses the same memory as x, and so on for [1] and [2]
         };

@@ -4,6 +4,7 @@
 #include <vector>
 
 class AABBCollider;
+class PlaneCollider;
 
 class CircleCollider : public Collider
 {
@@ -25,6 +26,7 @@ public:
 	bool Overlaps(const Math::Vector3& p) const;
 	bool Overlaps(CircleCollider* other) const;
 	bool Overlaps(AABBCollider* other) const;
+	bool Overlaps(PlaneCollider* other) const;
 
 	Math::Vector3 ClosestPoint(const Math::Vector3& p) const;
 

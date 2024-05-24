@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "AABBCollider.h"
+#include "PlaneCollider.h"
 
 CircleCollider::CircleCollider(const Math::Vector3& center, float radius, GameObject* owner)
 {
@@ -50,17 +51,24 @@ bool CircleCollider::Overlaps(const Math::Vector3& p) const
 
 bool CircleCollider::Overlaps(CircleCollider* other) const
 {
-	auto toPoint = other->m_center - m_center;
+	auto toPoint = other->m_center - m_center;	//	distance between centers of circles
 
-	float totalRad = m_radius + other->m_radius;
+	float totalRad = m_radius + other->m_radius;	//	radii of both circles combined
 		
-	return toPoint.MagnitudeSqr() <= (totalRad * totalRad);
+	return toPoint.MagnitudeSqr() <= (totalRad * totalRad);	//	if |toPoint| <= |totalRad|, return true
 }
 
 bool CircleCollider::Overlaps(AABBCollider* other) const
 {
-	auto diff = other->ClosestPoint(m_center) - m_center;
+	auto diff = other->ClosestPoint(m_center) - m_center;	//	distance between m_center and aabb.ClosestPoint()
 
+	return diff.Dot(diff) <= (m_radius * m_radius);	//	if |diff| <= |m_radius|, return true
+}
+
+bool CircleCollider::Overlaps(PlaneCollider* other) const
+{
+	auto diff = other->ClosestPoint(m_center) - m_center;
+	
 	return diff.Dot(diff) <= (m_radius * m_radius);
 }
 
@@ -114,6 +122,19 @@ void CircleCollider::CollisionCheck(Collider* other)
 		if (Overlaps(aabb))
 		{
 			std::cout << "Circle > AABB Collision Detected" << std::endl;
+
+			m_owner->OnCollision(other);
+		}
+	}
+
+	//	PLANE
+	PlaneCollider* plane = dynamic_cast<PlaneCollider*>(other);
+
+	if (nullptr != plane)
+	{
+		if (Overlaps(plane))
+		{
+			std::cout << "Circle > Plane Collision Detected" << std::endl;
 
 			m_owner->OnCollision(other);
 		}

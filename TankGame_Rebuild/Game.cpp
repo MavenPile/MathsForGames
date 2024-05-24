@@ -3,6 +3,7 @@
 #include "Player.h"
 #include <iostream>
 #include "Barricade.h"
+#include "Wall.h"
 
 Game::Game()
 {
@@ -64,6 +65,8 @@ Game::Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures)
 	m_barrel = new Barricade('c', 25, 1200, 450, textures[3]);
 
 	m_barbedWire = new Barricade('a', 25, 400, 450, textures[4]);
+
+	//m_wall = new Wall(800, 450, 450);
 
 	//	PLAYER
 

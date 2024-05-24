@@ -128,18 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AABBCollider.cpp" />
-    <ClCompile Include="BarrelObject.cpp" />
+    <ClCompile Include="Barricade.cpp" />
     <ClCompile Include="BulletObject.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PlaneCollider.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
-    <ClInclude Include="BarrelObject.h" />
+    <ClInclude Include="Barricade.h" />
     <ClInclude Include="BulletObject.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
@@ -148,6 +149,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="PlaneCollider.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SpriteObject.h" />

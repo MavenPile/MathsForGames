@@ -42,10 +42,13 @@
     <ClCompile Include="SpriteObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BarrelObject.cpp">
+    <ClCompile Include="Barricade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AABBCollider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -92,10 +95,13 @@
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
-    <ClInclude Include="BarrelObject.h">
+    <ClInclude Include="Barricade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AABBCollider.h">
+      <Filter>ColliderHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneCollider.h">
       <Filter>ColliderHeaders</Filter>
     </ClInclude>
   </ItemGroup>

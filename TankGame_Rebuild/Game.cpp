@@ -2,7 +2,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include <iostream>
-#include "BarrelObject.h"
+#include "Barricade.h"
 
 Game::Game()
 {
@@ -24,7 +24,7 @@ Game::Game()
 	m_player->SetLocalPosition(800, 450);
 }
 
-Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite)
+Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite, raylib::Texture2D* barbedSprite)
 {
 	//	WINDOW
 
@@ -37,11 +37,37 @@ Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Textur
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	m_barrel = new BarrelObject(1200, 450, barrelSprite);
+	m_barrel = new Barricade('c', 25, 1200, 450, barrelSprite);
+
+	m_barbedWire = new Barricade('a', 25, 400, 450, barbedSprite);
 
 	//	PLAYER
 
 	m_player = new Player(tankSprite, turretSprite, bulletSprite);
+	m_player->SetParent(GameObject::GetRoot());
+	m_player->SetLocalPosition(m_window->GetWidth() / 2, m_window->GetHeight() / 2);
+}
+
+Game::Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures)
+{
+	//	WINDOW
+
+	m_window = window;
+	m_deltaTime = 0.f;
+	SetTargetFPS(60);
+
+	//	WORLD
+
+	m_root = new GameObject;
+	GameObject::SetRoot(m_root);
+
+	m_barrel = new Barricade('c', 25, 1200, 450, textures[3]);
+
+	m_barbedWire = new Barricade('a', 25, 400, 450, textures[4]);
+
+	//	PLAYER
+
+	m_player = new Player(textures[0], textures[1], textures[2]);
 	m_player->SetParent(GameObject::GetRoot());
 	m_player->SetLocalPosition(m_window->GetWidth() / 2, m_window->GetHeight() / 2);
 }

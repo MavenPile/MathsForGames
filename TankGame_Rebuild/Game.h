@@ -5,6 +5,7 @@
 class GameObject;
 class Collider;
 class Player;
+class Barricade;
 
 class Game
 {
@@ -18,7 +19,8 @@ public:
 
 	GameObject* m_root;
 	std::vector<Collider*> m_colliders;
-	BarrelObject* m_barrel;
+	Barricade* m_barrel;
+	Barricade* m_barbedWire;
 	
 	//	PLAYER
 
@@ -27,7 +29,10 @@ public:
 	//	CONSTRUCTORS
 
 	Game();
-	Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite);
+	Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite, raylib::Texture2D* barbedSprite);
+
+	Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures);
+
 	~Game();
 
 	//	METHODS

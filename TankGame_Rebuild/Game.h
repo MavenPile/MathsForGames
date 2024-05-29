@@ -24,6 +24,11 @@ public:
 	Barricade* m_barbedWire;
 	//Wall* m_wall;
 	
+	Wall* m_north;
+	//Barricade* m_south;
+	//Barricade* m_east;
+	//Barricade* m_west;
+
 	//	PLAYER
 
 	Player* m_player;

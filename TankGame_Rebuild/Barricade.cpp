@@ -8,7 +8,7 @@ Barricade::Barricade()
 
 }
 
-Barricade::Barricade(char i, float size, int x, int y, raylib::Texture2D* sprite)
+Barricade::Barricade(char i, float sizeX, float sizeY, int x, int y, raylib::Texture2D* sprite)
 {
 	m_localPos = Math::Vector3(x, y, 1);
 	m_sprite = sprite;
@@ -16,11 +16,11 @@ Barricade::Barricade(char i, float size, int x, int y, raylib::Texture2D* sprite
 
 	if ('c' == i)
 	{
-		m_collider = new CircleCollider(m_localPos, size, this);
+		m_collider = new CircleCollider(m_localPos, sizeX, this);
 	}
 	else if ('a' == i)
 	{
-		m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(size, size, 1), GetWorldPosition() + Math::Vector3(size,size,1));
+		m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(sizeX, sizeY, 1), GetWorldPosition() + Math::Vector3(sizeX, sizeY, 1));
 	}
 }
 

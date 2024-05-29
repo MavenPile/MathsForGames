@@ -67,9 +67,12 @@ bool CircleCollider::Overlaps(AABBCollider* other) const
 
 bool CircleCollider::Overlaps(PlaneCollider* other) const
 {
-	auto diff = other->ClosestPoint(m_center) - m_center;
+	if (0 == other->TestSide(*this))
+	{
+		return true;
+	}
 	
-	return diff.Dot(diff) <= (m_radius * m_radius);
+	return false;
 }
 
 Math::Vector3 CircleCollider::ClosestPoint(const Math::Vector3& p) const
@@ -108,7 +111,7 @@ void CircleCollider::CollisionCheck(Collider* other)
 	{
 		if (Overlaps(circle))
 		{
-			std::cout << "Circle > Circle Collision Detected" << std::endl;
+			std::cout << "Circle -> Circle Collision Detected" << std::endl;
 
 			m_owner->OnCollision(other);
 		}
@@ -121,7 +124,7 @@ void CircleCollider::CollisionCheck(Collider* other)
 	{
 		if (Overlaps(aabb))
 		{
-			std::cout << "Circle > AABB Collision Detected" << std::endl;
+			std::cout << "Circle -> AABB Collision Detected" << std::endl;
 
 			m_owner->OnCollision(other);
 		}
@@ -134,7 +137,7 @@ void CircleCollider::CollisionCheck(Collider* other)
 	{
 		if (Overlaps(plane))
 		{
-			std::cout << "Circle > Plane Collision Detected" << std::endl;
+			std::cout << "Circle -> Plane Collision Detected" << std::endl;
 
 			m_owner->OnCollision(other);
 		}

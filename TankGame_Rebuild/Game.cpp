@@ -38,9 +38,9 @@ Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Textur
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	m_barrel = new Barricade('c', 25, 1200, 450, barrelSprite);
+	m_barrel = new Barricade('c', 25, 0, 1200, 450, barrelSprite);
 
-	m_barbedWire = new Barricade('a', 25, 400, 450, barbedSprite);
+	m_barbedWire = new Barricade('a', 25, 25, 400, 450, barbedSprite);
 
 	//	PLAYER
 
@@ -62,11 +62,18 @@ Game::Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures)
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	m_barrel = new Barricade('c', 25, 1200, 450, textures[3]);
+	m_barrel = new Barricade('c', 25, 0, 1200, 450, textures[3]);
 
-	m_barbedWire = new Barricade('a', 25, 400, 450, textures[4]);
+	m_barbedWire = new Barricade('a', 25, 25, 400, 450, textures[4]);
 
-	//m_wall = new Wall(800, 450, 450);
+	m_north = new Wall(800, 10, 800, 10);
+	//m_south = new Barricade('a', 800, 10, 800, 890, textures[5]);
+	//m_west = new Barricade('a', 10, 450, 10, 450, textures[5]);
+	//m_east = new Barricade('a', 10, 450, 1590, 450, textures[5]);
+
+	//m_north = new Wall(*Math::Vector3(800, 100, 1), *Math::Vector3(0, 0, 1), *Math::Vector3(1800, 100, 1));
+
+	//m_wall = new Wall(0, 0, 100);
 
 	//	PLAYER
 

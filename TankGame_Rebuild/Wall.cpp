@@ -1,11 +1,17 @@
 #include "Wall.h"
 #include "PlaneCollider.h"
 #include "raylib-cpp.hpp"
+#include "AABBCollider.h"
 
-Wall::Wall(float x, float y, float offset)
+Wall::Wall()
+{
+}
+
+Wall::Wall(float sizeX, float sizeY, int x, int y)
 {
 	m_localPos = Math::Vector3(x, y, 1);
-	m_collider = new PlaneCollider(x, y, offset);
+	SetParent(GameObject::GetRoot());
+	m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(sizeX, sizeY, 1), GetWorldPosition() + Math::Vector3(sizeX, sizeY, 1));
 }
 
 Wall::~Wall()
@@ -15,10 +21,10 @@ Wall::~Wall()
 
 void Wall::OnDraw()
 {
-	PlaneCollider* planeCheck = dynamic_cast<PlaneCollider*>(m_collider);
+	AABBCollider* aabbCheck = dynamic_cast<AABBCollider*>(m_collider);
 
-	if (nullptr != m_collider)
+	if (nullptr != aabbCheck)
 	{
-		DrawLine(GetWorldPosition().x - 800, GetWorldPosition().y, GetWorldPosition().x + 800, GetWorldPosition().y, RED);
+		DrawRectangleLines(aabbCheck->m_min.x, aabbCheck->m_min.y, aabbCheck->m_max.x - aabbCheck->m_min.x, aabbCheck->m_max.y - aabbCheck->m_min.y, RED);
 	}
 }

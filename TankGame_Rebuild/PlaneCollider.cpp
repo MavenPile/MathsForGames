@@ -35,6 +35,11 @@ PlaneCollider::PlaneCollider(const Math::Vector3& p1, const Math::Vector3& p2, c
 	m_offset = -p1.Dot(m_normal);
 }
 
+float PlaneCollider::GetOffset()
+{
+	return m_offset;
+}
+
 float PlaneCollider::DistanceTo(const Math::Vector3& point) const
 {
 	return point.Dot(m_normal) + m_offset;

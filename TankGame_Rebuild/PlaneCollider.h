@@ -23,6 +23,8 @@ public:
 
 	//	METHODS
 
+	float GetOffset();
+
 	float DistanceTo(const Math::Vector3& point) const;
 
 	const Math::Vector3& ClosestPoint(const Math::Vector3& point) const;

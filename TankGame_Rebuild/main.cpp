@@ -21,6 +21,7 @@ int main()
 		textures.push_back(new raylib::Texture2D("Sprites/bulletBlue1_outline.png"));
 		textures.push_back(new raylib::Texture2D("Sprites/barrelRust_top.png"));
 		textures.push_back(new raylib::Texture2D("Sprites/barricadeWood.png"));
+		textures.push_back(new raylib::Texture2D("Sprites/treeGreen_leaf.png"));
 
 		m_game = new Game(window, textures);
 	}

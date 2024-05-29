@@ -6,7 +6,8 @@ class Wall : public GameObject
 public:
 	//	CONSTRUCTORS
 
-	Wall(float x, float y, float offset);
+	Wall();
+	Wall(float sizeX, float sizeY, int x, int y);
 	~Wall();
 
 	//	METHODS

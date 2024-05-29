@@ -137,7 +137,6 @@
     <ClCompile Include="PlaneCollider.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
-    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABBCollider.h" />
@@ -157,7 +156,6 @@
     <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
-    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

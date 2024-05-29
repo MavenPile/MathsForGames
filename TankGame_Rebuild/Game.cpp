@@ -3,7 +3,6 @@
 #include "Player.h"
 #include <iostream>
 #include "Barricade.h"
-#include "Wall.h"
 
 Game::Game()
 {
@@ -25,29 +24,29 @@ Game::Game()
 	m_player->SetLocalPosition(800, 450);
 }
 
-Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite, raylib::Texture2D* barbedSprite)
-{
-	//	WINDOW
-
-	m_window = window;
-	m_deltaTime = 0.f;
-	SetTargetFPS(60);
-
-	//	WORLD
-
-	m_root = new GameObject;
-	GameObject::SetRoot(m_root);
-
-	m_barrel = new Barricade('c', 25, 0, 1200, 450, barrelSprite);
-
-	m_barbedWire = new Barricade('a', 25, 25, 400, 450, barbedSprite);
-
-	//	PLAYER
-
-	m_player = new Player(tankSprite, turretSprite, bulletSprite);
-	m_player->SetParent(GameObject::GetRoot());
-	m_player->SetLocalPosition(m_window->GetWidth() / 2, m_window->GetHeight() / 2);
-}
+//Game::Game(raylib::Window* window, raylib::Texture2D* tankSprite, raylib::Texture2D* turretSprite, raylib::Texture2D* bulletSprite, raylib::Texture2D* barrelSprite, raylib::Texture2D* barbedSprite)
+//{
+//	//	WINDOW
+//
+//	m_window = window;
+//	m_deltaTime = 0.f;
+//	SetTargetFPS(60);
+//
+//	//	WORLD
+//
+//	m_root = new GameObject;
+//	GameObject::SetRoot(m_root);
+//
+//	m_barrel = new Barricade('c', 25, 1200, 450, barrelSprite);
+//
+//	m_barbedWire = new Barricade('a', 25, 400, 450, barbedSprite);
+//
+//	//	PLAYER
+//
+//	m_player = new Player(tankSprite, turretSprite, bulletSprite);
+//	m_player->SetParent(GameObject::GetRoot());
+//	m_player->SetLocalPosition(m_window->GetWidth() / 2, m_window->GetHeight() / 2);
+//}
 
 Game::Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures)
 {
@@ -62,18 +61,14 @@ Game::Game(raylib::Window* window, std::vector<raylib::Texture2D*> textures)
 	m_root = new GameObject;
 	GameObject::SetRoot(m_root);
 
-	m_barrel = new Barricade('c', 25, 0, 1200, 450, textures[3]);
+	m_barrel = new Barricade('c', 25, 1200, 450, textures[3]);
 
-	m_barbedWire = new Barricade('a', 25, 25, 400, 450, textures[4]);
+	m_barbedWire = new Barricade('a', 25, 400, 450, textures[4]);
 
-	m_north = new Wall(800, 10, 800, 10);
-	//m_south = new Barricade('a', 800, 10, 800, 890, textures[5]);
-	//m_west = new Barricade('a', 10, 450, 10, 450, textures[5]);
-	//m_east = new Barricade('a', 10, 450, 1590, 450, textures[5]);
-
-	//m_north = new Wall(*Math::Vector3(800, 100, 1), *Math::Vector3(0, 0, 1), *Math::Vector3(1800, 100, 1));
-
-	//m_wall = new Wall(0, 0, 100);
+	m_north = new Barricade(660, 10, 800, 150);
+	m_south = new Barricade(660, 10, 800, 750);
+	m_east = new Barricade(10, 310, 1450, 450);
+	m_west = new Barricade(10, 310, 150, 450);
 
 	//	PLAYER
 
@@ -87,6 +82,10 @@ Game::~Game()
 	delete m_root;
 	delete m_player;
 	delete m_barrel;
+	delete m_north;
+	delete m_south;
+	delete m_east;
+	delete m_west;
 }
 
 void Game::Run()
@@ -124,10 +123,10 @@ void Game::Run()
 
 			m_window->ClearBackground(RAYWHITE);
 			m_window->DrawFPS();
-			DrawText("Press W and S to move forward and backward.", 25, 30, 20, LIGHTGRAY);
-			DrawText("Press A and D to turn left and right.", 25, 55, 20, LIGHTGRAY);
-			DrawText("Press Q and E to rotate the turret.", 25, 80, 20, LIGHTGRAY);
-			DrawText("Press C to fire a bullet.", 25, 105, 20, LIGHTGRAY);
+			DrawText("Press W and S to move forward and backward.", 10, 30, 20, LIGHTGRAY);
+			DrawText("Press A and D to turn left and right.", 10, 55, 20, LIGHTGRAY);
+			DrawText("Press Q and E to rotate the turret.", 10, 80, 20, LIGHTGRAY);
+			DrawText("Press C to fire a bullet.", 10, 105, 20, LIGHTGRAY);
 
 			//	LEVEL
 

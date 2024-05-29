@@ -51,9 +51,6 @@
     <ClCompile Include="PlaneCollider.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Colour.h">
@@ -106,9 +103,6 @@
     </ClInclude>
     <ClInclude Include="PlaneCollider.h">
       <Filter>ColliderHeaders</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

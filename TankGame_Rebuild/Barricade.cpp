@@ -8,7 +8,7 @@ Barricade::Barricade()
 
 }
 
-Barricade::Barricade(char i, float sizeX, float sizeY, int x, int y, raylib::Texture2D* sprite)
+Barricade::Barricade(char i, float size, int x, int y, raylib::Texture2D* sprite)
 {
 	m_localPos = Math::Vector3(x, y, 1);
 	m_sprite = sprite;
@@ -16,12 +16,26 @@ Barricade::Barricade(char i, float sizeX, float sizeY, int x, int y, raylib::Tex
 
 	if ('c' == i)
 	{
-		m_collider = new CircleCollider(m_localPos, sizeX, this);
+		m_collider = new CircleCollider(m_localPos, size, this);
 	}
 	else if ('a' == i)
 	{
-		m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(sizeX, sizeY, 1), GetWorldPosition() + Math::Vector3(sizeX, sizeY, 1));
+		m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(size, size, 1), GetWorldPosition() + Math::Vector3(size, size, 1));
 	}
+}
+
+Barricade::Barricade(float sizeX, float sizeY, int posX, int posY)
+{
+	m_localPos = Math::Vector3(posX, posY, 1);
+	SetParent(GameObject::GetRoot());
+	m_collider = new AABBCollider(GetWorldPosition() - Math::Vector3(sizeX, sizeY, 1), GetWorldPosition() + Math::Vector3(sizeX, sizeY, 1));
+}
+
+Barricade::Barricade(Math::Vector3& normal, float offset)
+{
+	m_localPos = normal;
+	m_collider = new PlaneCollider(normal, offset);
+	SetParent(GameObject::GetRoot());
 }
 
 Barricade::~Barricade()
@@ -31,8 +45,11 @@ Barricade::~Barricade()
 
 void Barricade::OnDraw()
 {
-	SpriteObject::OnDraw();
-
+	if (m_sprite != nullptr)
+	{
+		SpriteObject::OnDraw();
+	}
+	
 	CircleCollider* circleCheck = dynamic_cast<CircleCollider*>(m_collider);
 
 	if (nullptr != circleCheck)

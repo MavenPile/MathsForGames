@@ -12,10 +12,10 @@ int main()
 
 	Game* m_game;
 	
+	std::vector<raylib::Texture2D*> textures;
+
 	if (true == usingVector)
 	{
-		std::vector<raylib::Texture2D*> textures;
-
 		textures.push_back(new raylib::Texture2D("Sprites/tankBody_blue_outline.png"));
 		textures.push_back(new raylib::Texture2D("Sprites/tankBlue_barrel1_outline.png"));
 		textures.push_back(new raylib::Texture2D("Sprites/bulletBlue1_outline.png"));
@@ -37,4 +37,9 @@ int main()
 	}
 
 	m_game->Run();
+
+	for (int i = 0; i < textures.size(); i++)
+	{
+		delete textures[i];
+	}
 }
